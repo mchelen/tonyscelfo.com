@@ -1,6 +1,9 @@
-/2010/02/use-keyboard-shortcuts-in-google.html
+---
+title: Use Keyboard Shortcuts in Google Applications
+layout: default
+alias: /2010/02/use-keyboard-shortcuts-in-google.html
+---
 
-Use Keyboard Shortcuts in Google Applications
 Google applications are a lot more efficient when you use the keyboard shortcuts.  For example, in Gmail you can hit r to reply, a to reply-all, f to forward, j to move to an older message, k to move to a newer message and there are many, many more.
 
 I had been using keyboard shortcuts for years before I discovered that hitting ? brings up an overlay showing every keyboard shortcut for the application.  Check it out and learn as many as you can.

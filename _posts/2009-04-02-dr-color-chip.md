@@ -1,6 +1,8 @@
-/2009/04/dr-color-chip.html
-
-Dr. ColorChip
+---
+title: Dr. ColorChip
+layout: default
+alias: /2009/04/dr-color-chip.html
+---
 
 Sometimes is sucks to own nice things... especially when bad things happen to those nice things. But at the end of the day, they are just things and they can be fixed or replaced.
 

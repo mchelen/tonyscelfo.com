@@ -1,6 +1,9 @@
-/2010/09/using-git-to-deploy-website.html
+---
+title: Using Git to Deploy a Website
+layout: default
+alias: /2010/09/using-git-to-deploy-website.html
+---
 
-Using Git to Deploy a Website
 I use git at work and I think it's a fantastic version control system.  I've also been using it on some personal projects and I've written a post-receive hook that is very useful for managing simple web applications.  Once configured, you can deploy to a staging server and/or a production server by simply running git-push.  Skim down to Step 4 if you need an example to be convinced.
 
 This script is great for a simple site with the following requirements:

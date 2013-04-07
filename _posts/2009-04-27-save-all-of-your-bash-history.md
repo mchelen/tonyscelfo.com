@@ -1,6 +1,8 @@
-/2009/04/save-all-of-your-bash-history.html
-
-Save all of your bash history
+---
+title: Save all of your bash history
+layout: default
+alias: /2009/04/save-all-of-your-bash-history.html
+---
 
 The greatest workflow change I've made to improve productivity is to save every single command I enter into my terminal.
 

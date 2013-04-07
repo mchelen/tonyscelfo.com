@@ -1,6 +1,8 @@
-/2005/10/open-space-beneath.html
-
-Open space beneath
+---
+title: Open space beneath
+layout: default
+alias: /2005/10/open-space-beneath.html
+---
 
 [![Open space beneath](http://static.flickr.com/33/49024592_5e28199428.jpg)](http://www.flickr.com/photos/scelfo/49024592/)
 

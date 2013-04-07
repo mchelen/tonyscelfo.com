@@ -1,6 +1,8 @@
-/2009/07/use-smarthost-to-route-outgoing-exim4.html
-
-Use Smarthost to Route Outgoing Exim4 Mail Through Gmail
+---
+title: Use Smarthost to Route Outgoing Exim4 Mail Through Gmail
+layout: default
+alias: /2009/07/use-smarthost-to-route-outgoing-exim4.html
+---
 
 *Update 8/27/12* - [Ubuntu 12.04](http://releases.ubuntu.com/12.04/) installs postfix by default.  If you want to use postfix instead of exim4, follow [these instructions](http://blog.bigdinosaur.org/postfix-gmail-and-you/).  I'm running 12.04 now and using postfix.
 

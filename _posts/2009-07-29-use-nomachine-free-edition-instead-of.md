@@ -1,6 +1,9 @@
-/2009/07/use-nomachine-free-edition-instead-of.html
+---
+title: Use NoMachine Free Edition Instead of FreeNX
+layout: default
+alias: /2009/07/use-nomachine-free-edition-instead-of.html
+---
 
-Use NoMachine Free Edition Instead of FreeNX
 [FreeNX](http://freenx.berlios.de/) is great and I wrote [this FreeNX post](http://blog.tonyscelfo.com/2009/06/freenx-lets-you-use-nomachine-for-free.html) about it last month. Since then, I've realized that NoMachine offers their own NX server for free as "NoMachine Free Edition" with the limitation that you can only have two simultaneous users connected at a time.
 
 If you are new to NX, I highly recommend reading [my FreeNX post](http://blog.tonyscelfo.com/2009/06/freenx-lets-you-use-nomachine-for-free.html) because it talks more about NX and it describes how to use xmodmap to fix key bindings when using an OS X client to connect to a linux server.

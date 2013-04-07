@@ -1,6 +1,8 @@
-/2008/09/hacking-appletv.html
-
-Hacking AppleTV
+---
+title: Hacking AppleTV
+layout: default
+alias: /2008/09/hacking-appletv.html
+---
 
 The Take 2 update from Apple wipes our customizations that were previously done.  After going through the hassle of hacking Take 2, I decided to make a list of the steps needed to hack a fresh AppleTV with the Take 2 update without opening the case.  What you’ll have when you are done:
 

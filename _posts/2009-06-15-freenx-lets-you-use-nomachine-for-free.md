@@ -1,6 +1,8 @@
-/2009/06/freenx-lets-you-use-nomachine-for-free.html
-
-FreeNX lets you use NoMachine for free... and its so nice!!!
+---
+title: FreeNX lets you use NoMachine for free... and its so nice!!!
+layout: default
+alias: /2009/06/freenx-lets-you-use-nomachine-for-free.html
+---
 
 *UPDATE: This post has been superseded by [my post about NoMachine Free Edition](http://blog.tonyscelfo.com/2009/07/use-nomachine-free-edition-instead-of.html). I'm leaving this post here to avoid duplicating the information about OS X and the reasons to recompile from source.*
 

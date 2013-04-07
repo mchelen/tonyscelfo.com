@@ -1,6 +1,8 @@
-/2008/09/dont-use-esc-in-vi.html
-
-Don't use the Esc key in Vi
+---
+title: Don't use the Esc key in Vi
+layout: default
+alias: /2008/09/dont-use-esc-in-vi.html
+---
 
 Emacs or Vi... that's another conversation. But if you are like me and you use Vi, here is a tip that I just learned today.
 
