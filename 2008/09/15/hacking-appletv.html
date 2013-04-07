@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>blog.tonyscelfo.com</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="tales of a software ninjaneer">
+
+    <link rel="stylesheet" href="/ss/styles.css">
+    <link rel="stylesheet" href="/ss/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+      <h1><a href="/">blog.tonyscelfo.com</a></h1>
+        <p>tales of a software ninjaneer</p>
+        
+          <a href="/2010/10/19/2007-subaru-impreza-sti.html">2007 Subaru Impreza STi</a><br />
+        
+          <a href="/2010/09/19/shared-account-for-repo-hosting.html">Shared Account for Repo Hosting</a><br />
+        
+          <a href="/2010/09/07/using-git-to-deploy-website.html">Using Git to Deploy a Website</a><br />
+        
+          <a href="/2010/02/18/use-keyboard-shortcuts-in-google.html">Use Keyboard Shortcuts in Google Applications</a><br />
+        
+          <a href="/2009/07/29/use-nomachine-free-edition-instead-of.html">Use NoMachine Free Edition Instead of FreeNX</a><br />
+        
+          <a href="/2009/07/13/use-smarthost-to-route-outgoing-exim4.html">Use Smarthost to Route Outgoing Exim4 Mail Through Gmail</a><br />
+        
+          <a href="/2009/06/15/freenx-lets-you-use-nomachine-for-free.html">FreeNX lets you use NoMachine for free... and its so nice!!!</a><br />
+        
+          <a href="/2009/04/27/save-all-of-your-bash-history.html">Save all of your bash history</a><br />
+        
+          <a href="/2009/04/02/dr-color-chip.html">Dr. ColorChip</a><br />
+        
+          <a href="/2008/09/25/dont-use-esc-in-vi.html">Don't use the Esc key in Vi</a><br />
+        
+          <a href="/2008/09/15/hacking-appletv.html">Hacking AppleTV</a><br />
+        
+          <a href="/2008/08/05/new-homepage-design.html">New Homepage Design</a><br />
+        
+          <a href="/2005/10/10/huge-arch.html">Huge Arch</a><br />
+        
+          <a href="/2005/10/10/dinosaur-journey-museum.html">Dinosaur Journey Museum</a><br />
+        
+          <a href="/2005/10/10/cool-tree.html">Cool Tree</a><br />
+        
+          <a href="/2005/10/04/open-space-beneath.html">Open space beneath</a><br />
+        
+          <a href="/2005/10/04/gina-and-kevin.html">Gina and Kevin</a><br />
+        
+          <a href="/2005/10/03/1989-porsche-944-s2.html">1989 Porsche 944 S2</a><br />
+        
+        <br />
+        <p class="view">
+          <a href="https://plus.google.com/110371866564374610674">Google+</a>
+          |
+          <a href="https://github.com/scelfo">GitHub</a>
+          |
+          <a href="https://www.facebook.com/tony.scelfo">Facebook</a>
+          |
+          <a href="http://www.linkedin.com/pub/tony-scelfo/3/8b/b91">LinkedIn</a>
+        </p>
+      </header>
+
+<section>
+<h1>Hacking AppleTV</h1>
+<p>The Take 2 update from Apple wipes our customizations that were previously done. After going through the hassle of hacking Take 2, I decided to make a list of the steps needed to hack a fresh AppleTV with the Take 2 update without opening the case. What you’ll have when you are done:</p>
+
+<ol>
+<li>SSH server on the AppleTV</li>
+
+<li>AFP server to transfer files to the AppleTV</li>
+
+<li>NFS and SMB clients so your AppleTV can play from network shares</li>
+
+<li>The ATVFiles plugin so you can play the files through the onscreen menu</li>
+</ol>
+
+<p>Great guide that will take you through the entire process:</p>
+
+<ul>
+<li><a href='http://wiki.awkwardtv.org/wiki/Take_2_Full_Update'>Take 2 Full Update Guide</a></li>
+</ul>
+
+<p>Steps from the guide and my comments about them:</p>
+
+<ol>
+<li>
+<p>Install AppleTV Take 2 update. (I did a full factory restart and then updated to the latest software update)</p>
+</li>
+
+<li>
+<p>Use <a href='http://wiki.awkwardtv.org/wiki/Take2patch'>Patchstick</a> to boot the AppleTV off a USB key (I used a 256mb key) and enable SSH. (There wasn’t a Take 2 compatible patchstick when I did this, so I needed to convert an original patchstick by adding some files that were removed from the Take 2 release. This link seems to have taken care of that problem. When the patch is done, the AppleTV tries to reboot and mine kernel panics… just pull out the USB key and power cycle the AppleTV and it should be fine)</p>
+</li>
+
+<li>
+<p>Install the <a href='http://ericiii.net/sa/appletv/ATVFiles-1.0.take2b1.run'>ATVFiles</a> beta plugin or look in their <a href='http://forum.awkwardtv.org/viewtopic.php?f=18&amp;t=1175&amp;sid=d60286cbf432310ca421bcd4db550520'>Take 2 thread</a> for a newer version. (I’m using the beta 1 release and it is much nicer than the alpha release described in the guide)</p>
+</li>
+
+<li>
+<p>Install <a href='http://perian.org/'>Perian</a>. (If you want wmv support, you cana get <a href='http://www.flip4mac.com/'>Flip4Mac</a>, but I don’t use it)</p>
+</li>
+
+<li>
+<p>Install AFP by using the automatic process in the guide. (This will mount the recovery partition on the AppleTV and pull some files out of it that were left out of the Take 2 release… the afpinstall.sh script takes a little while to run)</p>
+</li>
+
+<li>
+<p>Reboot AppleTV.</p>
+</li>
+
+<li>
+<p>Install USB by following the instructions in the guide. This step is the most complicated. (For me, when I ran the “do_usb_patch.sh” script, the patch failed with a bus error because the precompiled kernel patcher didn’t run on my version of OS X. I downloaded the <a href='http://www.paulbart.net/AppleTV/prelink_tool.070330a.tgz'>prelink_tool source</a>, extracted it and ran “make” to build it. Once I built my own prelink_tool, I was able to patch the kernel following the instructions in the guide)</p>
+</li>
+
+<li>
+<p>Install the mount_smbfs binary. (I got the binary out of the MacOS X 10.4.9 Combo Updater mentioned in the guide)</p>
+</li>
+
+<li>
+<p>Create rc.local. (This step will let the AppleTV load your new kernel extensions when it boots. I copied the kextstat binary from my OS X Tiger installation to the AppleTV so that I could run it to find out which kernel extensions were loaded, but you should only need to do that if you run into problems. If you don’t have Tiger running, take a look in the Combo Updater from step 8, it might be in there)</p>
+</li>
+
+<li>
+<p>Reboot AppleTV.</p>
+</li>
+</ol>
+
+<p>After following those steps, you should be happy with your AppleTV. Well… at least as happy as you can be knowing that things like <a href='http://www.popcornhour.com/'>Popcorn Hour</a> exist.</p>
+
+<p>But what about automatically mounting SMB and NFS shares when AppleTV boots? For that, I’m using an OS X LaunchAgent. If you are familiar with linux startup scripts, you will think that OS X plist startup scripts are crazy. I don’t really like them, but they do allow for some cool things like executing scripts when certain directories are accessed. We’re not going to do any of that, so its a lot of overhead to use a LaunchAgent plist file, but it works.</p>
+
+<p>If you want to mount SMB, you should enable the <a href='http://en.wikipedia.org/wiki/Setuid'>setuid bit</a> on mount_smbfs so that you can inherit root permissions as the default frontrow user.</p>
+
+<p><code>bash-2.05b$ sudo chmod +s /sbin/mount_smbfs</code></p>
+
+<p>Here are example LaunchAgent files, modify them to fit your application. The Labels that start with com.tonyscelfo are there to be unique, change them to fit your needs. The first program argument of “-t” seems to be needed but I really have no idea why… maybe someone can post an explanation for why that’s needed.</p>
+
+<p><code>/Users/frontrow/Library/LaunchAgents/com.tonyscelfo.nfs.plist</code></p>
+
+<pre><code>&lt;?xml version=”1.0″ encoding=”UTF-8″?&gt;
+&lt;!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”&gt;
+&lt;plist version=”1.0″&gt;
+&lt;dict&gt;
+        &lt;key&gt;Disabled&lt;/key&gt;
+        &lt;false/&gt;
+        &lt;key&gt;Label&lt;/key&gt;
+        &lt;string&gt;com.tonyscelfo.nfs&lt;/string&gt;
+        &lt;key&gt;Program&lt;/key&gt;
+        &lt;string&gt;/sbin/mount_nfs&lt;/string&gt;
+        &lt;key&gt;ProgramArguments&lt;/key&gt;
+        &lt;array&gt;
+                &lt;string&gt;-t&lt;/string&gt;
+                &lt;string&gt;nfsserver:/path/to/share&lt;/string&gt;
+                &lt;string&gt;/Users/frontrow/Movies/NFSMountPath&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;RunAtLoad&lt;/key&gt;
+        &lt;true/&gt;
+        &lt;key&gt;OnDemand&lt;/key&gt;
+        &lt;false/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
+<p><code>/Users/frontrow/Library/LaunchAgents/com.tonyscelfo.smb.plist</code></p>
+
+<pre><code>&lt;?xml version=”1.0″ encoding=”UTF-8″?&gt;
+&lt;!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”&gt;
+&lt;plist version=”1.0″&gt;
+&lt;dict&gt;
+        &lt;key&gt;Disabled&lt;/key&gt;
+        &lt;false/&gt;
+        &lt;key&gt;Label&lt;/key&gt;
+        &lt;string&gt;com.tonyscelfo.smb&lt;/string&gt;
+        &lt;key&gt;Program&lt;/key&gt;
+        &lt;string&gt;/sbin/mount_smbfs&lt;/string&gt;
+        &lt;key&gt;ProgramArguments&lt;/key&gt;
+        &lt;array&gt;
+                &lt;string&gt;-t&lt;/string&gt;
+                &lt;string&gt;//username:password@sambaserver/SharePath&lt;/string&gt;
+                &lt;string&gt;/Users/frontrow/Movies/SMBMountPath&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;RunAtLoad&lt;/key&gt;
+        &lt;true/&gt;
+        &lt;key&gt;OnDemand&lt;/key&gt;
+        &lt;false/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
+<p>Once you put the plist file into the <code>~/Library/LaunchAgents</code> directory (which you might need to create), your SMB or NFS mount will automatically get connected when you boot the AppleTV.</p>
+
+<p>Enjoy.</p>
+</section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/js/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3434858-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+

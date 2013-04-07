@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>blog.tonyscelfo.com</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="tales of a software ninjaneer">
+
+    <link rel="stylesheet" href="/ss/styles.css">
+    <link rel="stylesheet" href="/ss/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+      <h1><a href="/">blog.tonyscelfo.com</a></h1>
+        <p>tales of a software ninjaneer</p>
+        
+          <a href="/2010/10/19/2007-subaru-impreza-sti.html">2007 Subaru Impreza STi</a><br />
+        
+          <a href="/2010/09/19/shared-account-for-repo-hosting.html">Shared Account for Repo Hosting</a><br />
+        
+          <a href="/2010/09/07/using-git-to-deploy-website.html">Using Git to Deploy a Website</a><br />
+        
+          <a href="/2010/02/18/use-keyboard-shortcuts-in-google.html">Use Keyboard Shortcuts in Google Applications</a><br />
+        
+          <a href="/2009/07/29/use-nomachine-free-edition-instead-of.html">Use NoMachine Free Edition Instead of FreeNX</a><br />
+        
+          <a href="/2009/07/13/use-smarthost-to-route-outgoing-exim4.html">Use Smarthost to Route Outgoing Exim4 Mail Through Gmail</a><br />
+        
+          <a href="/2009/06/15/freenx-lets-you-use-nomachine-for-free.html">FreeNX lets you use NoMachine for free... and its so nice!!!</a><br />
+        
+          <a href="/2009/04/27/save-all-of-your-bash-history.html">Save all of your bash history</a><br />
+        
+          <a href="/2009/04/02/dr-color-chip.html">Dr. ColorChip</a><br />
+        
+          <a href="/2008/09/25/dont-use-esc-in-vi.html">Don't use the Esc key in Vi</a><br />
+        
+          <a href="/2008/09/15/hacking-appletv.html">Hacking AppleTV</a><br />
+        
+          <a href="/2008/08/05/new-homepage-design.html">New Homepage Design</a><br />
+        
+          <a href="/2005/10/10/huge-arch.html">Huge Arch</a><br />
+        
+          <a href="/2005/10/10/dinosaur-journey-museum.html">Dinosaur Journey Museum</a><br />
+        
+          <a href="/2005/10/10/cool-tree.html">Cool Tree</a><br />
+        
+          <a href="/2005/10/04/open-space-beneath.html">Open space beneath</a><br />
+        
+          <a href="/2005/10/04/gina-and-kevin.html">Gina and Kevin</a><br />
+        
+          <a href="/2005/10/03/1989-porsche-944-s2.html">1989 Porsche 944 S2</a><br />
+        
+        <br />
+        <p class="view">
+          <a href="https://plus.google.com/110371866564374610674">Google+</a>
+          |
+          <a href="https://github.com/scelfo">GitHub</a>
+          |
+          <a href="https://www.facebook.com/tony.scelfo">Facebook</a>
+          |
+          <a href="http://www.linkedin.com/pub/tony-scelfo/3/8b/b91">LinkedIn</a>
+        </p>
+      </header>
+
+<section>
+<h1>Using Git to Deploy a Website</h1>
+<p>I use git at work and I think it&#8217;s a fantastic version control system. I&#8217;ve also been using it on some personal projects and I&#8217;ve written a post-receive hook that is very useful for managing simple web applications. Once configured, you can deploy to a staging server and/or a production server by simply running git-push. Skim down to Step 4 if you need an example to be convinced.</p>
+
+<p>This script is great for a simple site with the following requirements:</p>
+
+<ul>
+<li>
+<p>Site can be updated by hosting contents in a symlinked directory. When the symlink is updated to point to a different directory, the website updates without a server restart. This is basically how Capistrano works&#8230; a PHP website is a good example where this works.</p>
+</li>
+
+<li>
+<p>You want to immediately update a staging server with you latest git push and update a production server with specific tagged commits.</p>
+</li>
+
+<li>
+<p>You can configure two different urls such as http://staging.yourdomain.com -&gt; /path/to/staging and http://www.yourdomain.com -&gt; /path/to/current. This is easy to do on a hosting service like DreamHost.</p>
+</li>
+
+<li>
+<p>You have SSH keys enabled so you can easily connect to your server.</p>
+</li>
+
+<li>
+<p>You&#8217;re lazy and you want a script to do all your deployment work.</p>
+</li>
+</ul>
+
+<p>Assumptions:</p>
+
+<ul>
+<li>
+<p>You&#8217;re comfortable using git.</p>
+</li>
+
+<li>
+<p>You&#8217;ve read the man pages for git-push, git-pull, git-tag, git-status and git-diff. (Can&#8217;t hurt to read all the git man pages&#8230; there aren&#8217;t that many.)</p>
+</li>
+
+<li>
+<p>You know how to use an .htaccess file to prevent anyone from seeing the contents of your git repo or the data directory we&#8217;ll create. In my apache configuration, I use <code>RewriteRule ^.git.*$ - [F]&quot; and &quot;RewriteRule ^data.*$ - [F]</code>.</p>
+</li>
+</ul>
+
+<p>Step 1:</p>
+
+<p>Create a directory that we&#8217;ll call <code>/path/to</code> for the rest of this post.</p>
+
+<p>Configure your server to host a staging url from <code>/path/to/staging</code> and a production url from <code>/path/to/current</code>. We&#8217;ll create the contents of those directories in step 3.</p>
+
+<p>Step 2:</p>
+
+<p>Create the git repo on your server:</p>
+
+<pre><code>cd /path/to
+mkdir repo
+cd repo
+git init --bare
+cd hooks
+wget http://www.tonyscelfo.com/git/post-receive
+chmod u+x post-receive</code></pre>
+
+<p>Step 3:</p>
+
+<p>Clone the repo on your local machine:</p>
+
+<pre><code>git clone -b master &lt;user&gt;@&lt;hostname&gt;:/path/to/repo</code></pre>
+
+<p>On the initial empty checkout, you will see: &#8220;warning: You appear to have cloned an empty repository.&#8221; Once we push, you won&#8217;t see that again if/when you clone to other local machines.</p>
+
+<pre><code>cd
+mkdir data
+echo &quot;p0&quot; &gt; data/live
+git add data/live
+git commit -a -m &quot;initial commit to create valid repo&quot;
+git tag p0
+git push origin +master:refs/heads/master --tags</code></pre>
+
+<p>You will now have the following on your server:</p>
+
+<pre><code>/path/to/repo (a bare git repo)
+/path/to/staging (contains the latest code)
+/path/to/current -&gt; /path/to/p0
+/path/to/p0 (the directory containing what we tagged as p0)</code></pre>
+
+<p>Step 4 (repeat for as long as you work on the project):</p>
+
+<p>Work on your site and push to staging:</p>
+
+<pre><code>work, work, work
+git commit
+git push
+repeat</code></pre>
+
+<p>Every time you push, the staging directory will be updated immediately. When you want to promote to production, do the following:</p>
+
+<ol>
+<li>
+<p>Checkout the appropriate commit if its not the current HEAD</p>
+</li>
+
+<li>
+<p>git tag &#60;tag_name&#62; to tag your repo with a release name</p>
+</li>
+
+<li>
+<p>Edit the contents of data/live to contain &#60;tag_name&#62;</p>
+</li>
+
+<li>
+<p>git push &#8211;tags to push the tags and trigger the update to the current symlink</p>
+</li>
+</ol>
+
+<p>If you ever want to rollback, you can simply:</p>
+
+<ol>
+<li>
+<p>Run git tag -n to see a list of all the previous release tags with annotations</p>
+</li>
+
+<li>
+<p>Edit the contents of data/live to contain &#60;tag_name&#62; of the previous release</p>
+</li>
+
+<li>
+<p>Run git push to push and trigger the update to the current symlink. (You don&#8217;t need to push the tags when doing a rollback because you had previously pushed the tag definition to the git repo.)</p>
+</li>
+</ol>
+
+<p>Enjoy. If you use this script, please comment with feedback!</p>
+</section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/js/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3434858-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+

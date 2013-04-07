@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>blog.tonyscelfo.com</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="tales of a software ninjaneer">
+
+    <link rel="stylesheet" href="/ss/styles.css">
+    <link rel="stylesheet" href="/ss/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+      <h1><a href="/">blog.tonyscelfo.com</a></h1>
+        <p>tales of a software ninjaneer</p>
+        
+          <a href="/2010/10/19/2007-subaru-impreza-sti.html">2007 Subaru Impreza STi</a><br />
+        
+          <a href="/2010/09/19/shared-account-for-repo-hosting.html">Shared Account for Repo Hosting</a><br />
+        
+          <a href="/2010/09/07/using-git-to-deploy-website.html">Using Git to Deploy a Website</a><br />
+        
+          <a href="/2010/02/18/use-keyboard-shortcuts-in-google.html">Use Keyboard Shortcuts in Google Applications</a><br />
+        
+          <a href="/2009/07/29/use-nomachine-free-edition-instead-of.html">Use NoMachine Free Edition Instead of FreeNX</a><br />
+        
+          <a href="/2009/07/13/use-smarthost-to-route-outgoing-exim4.html">Use Smarthost to Route Outgoing Exim4 Mail Through Gmail</a><br />
+        
+          <a href="/2009/06/15/freenx-lets-you-use-nomachine-for-free.html">FreeNX lets you use NoMachine for free... and its so nice!!!</a><br />
+        
+          <a href="/2009/04/27/save-all-of-your-bash-history.html">Save all of your bash history</a><br />
+        
+          <a href="/2009/04/02/dr-color-chip.html">Dr. ColorChip</a><br />
+        
+          <a href="/2008/09/25/dont-use-esc-in-vi.html">Don't use the Esc key in Vi</a><br />
+        
+          <a href="/2008/09/15/hacking-appletv.html">Hacking AppleTV</a><br />
+        
+          <a href="/2008/08/05/new-homepage-design.html">New Homepage Design</a><br />
+        
+          <a href="/2005/10/10/huge-arch.html">Huge Arch</a><br />
+        
+          <a href="/2005/10/10/dinosaur-journey-museum.html">Dinosaur Journey Museum</a><br />
+        
+          <a href="/2005/10/10/cool-tree.html">Cool Tree</a><br />
+        
+          <a href="/2005/10/04/open-space-beneath.html">Open space beneath</a><br />
+        
+          <a href="/2005/10/04/gina-and-kevin.html">Gina and Kevin</a><br />
+        
+          <a href="/2005/10/03/1989-porsche-944-s2.html">1989 Porsche 944 S2</a><br />
+        
+        <br />
+        <p class="view">
+          <a href="https://plus.google.com/110371866564374610674">Google+</a>
+          |
+          <a href="https://github.com/scelfo">GitHub</a>
+          |
+          <a href="https://www.facebook.com/tony.scelfo">Facebook</a>
+          |
+          <a href="http://www.linkedin.com/pub/tony-scelfo/3/8b/b91">LinkedIn</a>
+        </p>
+      </header>
+
+<section>
+<h1>Save all of your bash history</h1>
+<p>The greatest workflow change I&#8217;ve made to improve productivity is to save every single command I enter into my terminal.</p>
+
+<p>Just add this snippet into your <code>~/.bashrc</code> file and you will get a <code>~/.bash_eternal_history</code> file that will contain every command you run. No more worrying about the max size of your bash history file or getting frustrated that the command you wanted to recall was 102 commands ago in a history file with 100 commands.</p>
+
+<pre><code># don&#39;t put duplicate lines in the history. See bash(1) for more options
+# ... and ignore same sucessive entries.
+export HISTCONTROL=ignoreboth
+
+# set the time format for the history file.
+export HISTTIMEFORMAT=&quot;%Y.%m.%d %H:%M:%S &quot;
+
+# If this is an xterm set the title to user@host:dir
+case &quot;$TERM&quot; in
+  xterm*|rxvt*)
+  # Show the currently running command in the terminal title:
+  # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+  show_command_in_title_bar()
+  {
+    case &quot;$BASH_COMMAND&quot; in
+      *\033]0*)
+      # The command is trying to set the title bar as well;
+      # this is most likely the execution of $PROMPT_COMMAND.
+      # In any case nested escapes confuse the terminal, so don&#39;t
+      # output them.
+      ;;
+      *)
+      if test ! &quot;$BASH_COMMAND&quot; = &quot;log_bash_eternal_history&quot;
+      then
+        echo -ne &quot;\033]0;$(history 1 | sed &#39;s/^ *[0-9]* *//&#39;) :: ${PWD} :: ${USER}@${HOSTNAME}\007&quot;
+      fi
+      ;;
+    esac
+  }
+  trap show_command_in_title_bar DEBUG
+  ;;
+  *)
+  ;;
+esac
+
+log_bash_eternal_history()
+{
+  local rc=$?
+  [[ $(history 1) =~ ^\ *[0-9]+\ +([^\ ]+\ [^\ ]+)\ +(.*)$ ]]
+  local date_part=&quot;${BASH_REMATCH[1]}&quot;
+  local command_part=&quot;${BASH_REMATCH[2]}&quot;
+  if [ &quot;$command_part&quot; != &quot;$ETERNAL_HISTORY_LAST&quot; -a &quot;$command_part&quot; != &quot;ls&quot; -a &quot;$command_part&quot; != &quot;ll&quot; ]
+  then
+    echo $date_part $HOSTNAME $rc &quot;$command_part&quot; &gt;&gt; ~/.bash_eternal_history
+    export ETERNAL_HISTORY_LAST=&quot;$command_part&quot;
+  fi
+}
+
+PROMPT_COMMAND=&quot;log_bash_eternal_history&quot;</code></pre>
+
+<p>In case you are curious about how the magic happens, its just a neat little trick. <code>PROMPT_COMMAND</code>is an environment variable that bash reads and executes right before displaying the prompt. Some people use it to dump out the date so they can tell when commands finish running. I&#8217;m using it to call the <code>log_bash_eternal_history()</code> helper function which does all the magic.</p>
+</section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/js/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3434858-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+

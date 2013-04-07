@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>blog.tonyscelfo.com</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="tales of a software ninjaneer">
+
+    <link rel="stylesheet" href="/ss/styles.css">
+    <link rel="stylesheet" href="/ss/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+      <h1><a href="/">blog.tonyscelfo.com</a></h1>
+        <p>tales of a software ninjaneer</p>
+        
+          <a href="/2010/10/19/2007-subaru-impreza-sti.html">2007 Subaru Impreza STi</a><br />
+        
+          <a href="/2010/09/19/shared-account-for-repo-hosting.html">Shared Account for Repo Hosting</a><br />
+        
+          <a href="/2010/09/07/using-git-to-deploy-website.html">Using Git to Deploy a Website</a><br />
+        
+          <a href="/2010/02/18/use-keyboard-shortcuts-in-google.html">Use Keyboard Shortcuts in Google Applications</a><br />
+        
+          <a href="/2009/07/29/use-nomachine-free-edition-instead-of.html">Use NoMachine Free Edition Instead of FreeNX</a><br />
+        
+          <a href="/2009/07/13/use-smarthost-to-route-outgoing-exim4.html">Use Smarthost to Route Outgoing Exim4 Mail Through Gmail</a><br />
+        
+          <a href="/2009/06/15/freenx-lets-you-use-nomachine-for-free.html">FreeNX lets you use NoMachine for free... and its so nice!!!</a><br />
+        
+          <a href="/2009/04/27/save-all-of-your-bash-history.html">Save all of your bash history</a><br />
+        
+          <a href="/2009/04/02/dr-color-chip.html">Dr. ColorChip</a><br />
+        
+          <a href="/2008/09/25/dont-use-esc-in-vi.html">Don't use the Esc key in Vi</a><br />
+        
+          <a href="/2008/09/15/hacking-appletv.html">Hacking AppleTV</a><br />
+        
+          <a href="/2008/08/05/new-homepage-design.html">New Homepage Design</a><br />
+        
+          <a href="/2005/10/10/huge-arch.html">Huge Arch</a><br />
+        
+          <a href="/2005/10/10/dinosaur-journey-museum.html">Dinosaur Journey Museum</a><br />
+        
+          <a href="/2005/10/10/cool-tree.html">Cool Tree</a><br />
+        
+          <a href="/2005/10/04/open-space-beneath.html">Open space beneath</a><br />
+        
+          <a href="/2005/10/04/gina-and-kevin.html">Gina and Kevin</a><br />
+        
+          <a href="/2005/10/03/1989-porsche-944-s2.html">1989 Porsche 944 S2</a><br />
+        
+        <br />
+        <p class="view">
+          <a href="https://plus.google.com/110371866564374610674">Google+</a>
+          |
+          <a href="https://github.com/scelfo">GitHub</a>
+          |
+          <a href="https://www.facebook.com/tony.scelfo">Facebook</a>
+          |
+          <a href="http://www.linkedin.com/pub/tony-scelfo/3/8b/b91">LinkedIn</a>
+        </p>
+      </header>
+
+<section>
+<h1>Use NoMachine Free Edition Instead of FreeNX</h1>
+<p><a href='http://freenx.berlios.de/'>FreeNX</a> is great and I wrote <a href='http://blog.tonyscelfo.com/2009/06/freenx-lets-you-use-nomachine-for-free.html'>this FreeNX post</a> about it last month. Since then, I&#8217;ve realized that NoMachine offers their own NX server for free as &#8220;NoMachine Free Edition&#8221; with the limitation that you can only have two simultaneous users connected at a time.</p>
+
+<p>If you are new to NX, I highly recommend reading <a href='http://blog.tonyscelfo.com/2009/06/freenx-lets-you-use-nomachine-for-free.html'>my FreeNX post</a> because it talks more about NX and it describes how to use xmodmap to fix key bindings when using an OS X client to connect to a linux server.</p>
+
+<p>To get started the easy way, visit the <a href='http://www.nomachine.com/download.php'>NoMachine Free Edition download page</a> and download &#8220;NX Free Edition for Linux&#8221;. If you are on Ubuntu, grab the deb file for the server and install it as you normally would.</p>
+
+<pre><code>$ sudo dpkg -i nxserver_X.Y.Z-N_i386.deb</code></pre>
+
+<p>If you are happy with the default configuration of NX server, you can stop here. If you are an OS X user or if you want to change some of the NX key bindings you need to recompile nxagent from source. Take a look at <a href='http://blog.tonyscelfo.com/2009/06/freenx-lets-you-use-nomachine-for-free.html'>my FreeNX post</a> to read more about why you might want to recompile.</p>
+
+<p>If recompiling is for you, start by download the source from the <a href='http://www.nomachine.com/sources.php'>NX source download page</a>. You can get them all in one shot by running:</p>
+
+<pre><code>$ for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/sources.php | egrep &quot;${file}-[0-9]&quot; | grep HREF | sed &#39;s/.*HREF=&quot;\(.*\)&quot;.*/\1/&#39;`; wget ${url}; done</code></pre>
+
+<p>Or you can download them one at time. You&#8217;ll need these files:</p>
+
+<pre><code>nxproxy-X.Y.Z-N.tar.gz
+nxcomp-X.Y.Z-N.tar.gz
+nxcompext-X.Y.Z-N.tar.gz
+nxcompshad-X.Y.Z-N.tar.gz
+nx-X11-X.Y.Z-N.tar.gz
+nxauth-X.Y.Z-N.tar.gz
+nxagent-X.Y.Z-N.tar.gz</code></pre>
+
+<p>Unpack the tarballs.</p>
+
+<pre><code>$ for file in *.gz; do tar xzf ${file}; done</code></pre>
+
+<p>On Ubuntu, make sure you have the jpeg and png dev libraries installed.</p>
+
+<pre><code>$ sudo apt-get install libjpeg62-dev libpng12-dev</code></pre>
+
+<p>(Optional) Modify Keystroke.c to remove some server side keyboard bindings which conflict with my window manager keyboard shortcuts.</p>
+
+<pre><code>$ wget http://tonyscelfo.com/nx/Keystore.c.patch &amp;&amp; patch -p0 &lt; Keystore.c.patch</code></pre>
+
+<p>(Optional) Modify Cursor.c to enable client side cursor warp. This was removed in the 3.5 line because it caused problems when resizing nxclient sessions. <a href='http://www.nomachine.com/ar/view.php?ar_id=AR02J00622'>NoMachine article about removing cursor warp.</a> However, use fvwm2 and have keyboard shortcuts to move my mouse which don&#8217;t work without client side cursor warp.</p>
+
+<pre><code>$ wget http://tonyscelfo.com/nx/Cursor.c.patch &amp;&amp; patch -p0 &lt; Cursor.c.patch</code></pre>
+
+<p>Go into the nx-X11 directory.</p>
+
+<pre><code>$ cd nx-X11/</code></pre>
+
+<p>Build the nxagent binary. The -j12 flag tells make to use eight threads. If you have a multicore system, replace with the number of cores that you have. If you don&#8217;t have a multicore system, leave the flag out.</p>
+
+<pre><code>$ make -j12 World</code></pre>
+
+<p>If the build was successful, you will get a message like: &#8220;Full build of Release 6.9 complete.&#8221;</p>
+
+<p>(Optional) If you want to shrink the nxagent binary by removing debugging information that you likely won&#8217;t ever need, you can strip it out.</p>
+
+<pre><code>$ strip programs/Xserver/nxagent</code></pre>
+
+<p>Replace the binary that was installed from the NoMachine Free Edition install. We&#8217;ll keep a back up of the original in case something went wrong.</p>
+
+<pre><code>$ sudo mv /usr/NX/bin/nxagent /usr/NX/bin/nxagent.orig
+$ sudo cp -a programs/Xserver/nxagent /usr/NX/bin/nxagent
+$ sudo chown root:root /usr/NX/bin/nxagent
+$ sudo chmod 755 /usr/NX/bin/nxagent</code></pre>
+
+<p>Restart the NX server.</p>
+
+<pre><code>$ sudo /etc/init.d/nxserver restart</code></pre>
+<hr />
+<p>This one liner works (inefficiently) to download all the source files:</p>
+
+<pre><code>$ for foo in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/sources.php | egrep &quot;${foo}-[0-9]&quot; | grep HREF | sed &#39;s/.*HREF=&quot;\(.*\)&quot;.*/\1/&#39;`; wget ${url}; done</code></pre>
+<hr />
+<p>If you want to modify Keystroke.c the same way I do (remove some bindings that interfere with my window manager keyboard shortcuts), you can add this step after extracting all the source files:</p>
+
+<pre><code>$ wget http://tonyscelfo.com/nx/Keystore.c.patch &amp;&amp; patch -p0 &lt; Keystore.c.patch</code></pre>
+<hr />
+<p>In the 3.5 line, the nx team removed client side cursor warp. I need that to use FVWM2 with my keyboard bindings to move the mouse. This command will download source before they removed client side cursor warp:</p>
+
+<pre><code>$ for file in nxagent-3.5.0-2.tar.gz nxcomp-3.5.0-1.tar.gz nxcompshad-3.5.0-2.tar.gz nx-X11-3.5.0-1.tar.gz nxauth-3.5.0-1.tar.gz nxcompext-3.5.0-1.tar.gz nxproxy-3.5.0-1.tar.gz; do wget http://64.34.161.181/download/3.5.0/sources/${file}; done</code></pre>
+<hr />
+<p>Do this all in one shot:</p>
+
+<pre><code>$ sudo apt-get install libjpeg62-dev libpng12-dev \
+&amp;&amp; for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/sources.php | egrep &quot;${file}-[0-9]&quot; | grep HREF | sed &#39;s/.*HREF=&quot;\(.*\)&quot;.*/\1/&#39;`; wget ${url}; done \
+&amp;&amp; for file in *.gz; do tar xzf ${file}; done \
+&amp;&amp; wget http://tonyscelfo.com/nx/Keystore.c.patch &amp;&amp; patch -p0 &lt; Keystore.c.patch \
+&amp;&amp; wget http://tonyscelfo.com/nx/Cursor.c.patch &amp;&amp; patch -p0 &lt; Cursor.c.patch \
+&amp;&amp; cd nx-X11/ \
+&amp;&amp; make -j12 World \
+&amp;&amp; strip programs/Xserver/nxagent \
+&amp;&amp; sudo mv /usr/NX/bin/nxagent /usr/NX/bin/nxagent.orig \
+&amp;&amp; sudo cp -a programs/Xserver/nxagent /usr/NX/bin/nxagent \
+&amp;&amp; sudo chown root:root /usr/NX/bin/nxagent \
+&amp;&amp; sudo chmod 755 /usr/NX/bin/nxagent \
+&amp;&amp; sudo /etc/init.d/nxserver restart</code></pre>
+</section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/js/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3434858-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+
