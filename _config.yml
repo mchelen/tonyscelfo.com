@@ -1,0 +1,13 @@
+me: Tony Scelfo
+name: github.tonyscelfo.com
+description: tales of a software ninjaneer
+github_url: https://github.com/scelfo
+
+url: github.tonyscelfo.com
+
+paginate: 10
+permalink: /:categories/:year/:month/:day/:title.foo.html
+
+markdown: rdiscount
+permalink: date
+pygments: true
