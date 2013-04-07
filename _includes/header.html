@@ -23,6 +23,13 @@
             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
-        <p class="view"><a href="{{ site.github_url }}">View My GitHub Profile</a></p>
-        <p class="view"><a href="{{ site.g+_url }}">View My Google+ Profile</a></p>
+        <p class="view">
+          <a href="{{ site.url_gplus }}">Google+</a>
+          |
+          <a href="{{ site.url_github }}">GitHub</a>
+          |
+          <a href="{{ site.url_facebook }}">Facebook</a>
+          |
+          <a href="{{ site.url_linkedin }}">LinkedIn</a>
+        </p>
       </header>

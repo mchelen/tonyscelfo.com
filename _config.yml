@@ -1,8 +1,11 @@
 me: Tony Scelfo
 name: github.tonyscelfo.com
 description: tales of a software ninjaneer
-github_url: https://github.com/scelfo
-g+_url: https://plus.google.com/110371866564374610674
+
+url_github: https://github.com/scelfo
+url_gplus: https://plus.google.com/110371866564374610674
+url_facebook: https://www.facebook.com/tony.scelfo
+url_linkedin: http://www.linkedin.com/pub/tony-scelfo/3/8b/b91
 
 paginate: 10
 #markdown: maruku
