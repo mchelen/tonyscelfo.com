@@ -58,4 +58,4 @@ Just add this snippet into your `~/.bashrc` file and you will get a `~/.bash_ete
 
     PROMPT_COMMAND="log_bash_eternal_history"
 
-In case you are curious about how the magic happens, its just a neat little trick. `PROMPT_COMMAND`is an environment variable that bash reads and executes right before displaying the prompt. Some people use it to dump out the date so they can tell when commands finish running. I'm using it to call the `log_bash_eternal_history()` helper function which does all the magic.
+In case you are curious about how the magic happens, its just a neat little trick. `PROMPT_COMMAND` is an environment variable that bash reads and executes right before displaying the prompt. Some people use it to dump out the date so they can tell when commands finish running. I'm using it to call the `log_bash_eternal_history()` helper function which does all the magic.
