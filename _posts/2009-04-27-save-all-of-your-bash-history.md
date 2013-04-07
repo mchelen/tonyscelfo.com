@@ -6,7 +6,7 @@ alias: /2009/04/save-all-of-your-bash-history.html
 
 The greatest workflow change I've made to improve productivity is to save every single command I enter into my terminal.
 
-Just add this snippet into your ~/.bashrc file and you will get a ~/.bash_eternal_history file that will contain every command you run. No more worrying about the max size of your bash history file or getting frustrated that the command you wanted to recall was 102 commands ago in a history file with 100 commands.
+Just add this snippet into your `~/.bashrc` file and you will get a `~/.bash_eternal_history` file that will contain every command you run. No more worrying about the max size of your bash history file or getting frustrated that the command you wanted to recall was 102 commands ago in a history file with 100 commands.
 
     # don't put duplicate lines in the history. See bash(1) for more options
     # ... and ignore same sucessive entries.
@@ -58,4 +58,4 @@ Just add this snippet into your ~/.bashrc file and you will get a ~/.bash_eterna
 
     PROMPT_COMMAND="log_bash_eternal_history"
 
-In case you are curious about how the magic happens, its just a neat little trick. PROMPT_COMMAND is an environment variable that bash reads and executes right before displaying the prompt. Some people use it to dump out the date so they can tell when commands finish running. I'm using it to call the log_bash_eternal_history() helper function which does all the magic.
+In case you are curious about how the magic happens, its just a neat little trick. `PROMPT_COMMAND`is an environment variable that bash reads and executes right before displaying the prompt. Some people use it to dump out the date so they can tell when commands finish running. I'm using it to call the `log_bash_eternal_history()` helper function which does all the magic.

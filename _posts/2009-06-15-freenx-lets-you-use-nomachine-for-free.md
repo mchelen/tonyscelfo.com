@@ -19,7 +19,7 @@ The best part is that getting it all working is super easy. Here is what you nee
 
 2. Get the public key of the FreeNX repo by running `sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2a8e3034d018a4ce`
 3. Update your package cache: `sudo apt-get update`
-4. Install FreeNX: sudo apt-get install freenx`
+4. Install FreeNX: `sudo apt-get install freenx`
 5. Create the nx system user: `sudo /usr/lib/nx/nxsetup --install`
 6. If your server is accessible from the world (not behind a firewall) make sure that you update the NX ssh keys from the default. Follow the instructions for [Using custom SSH keys](https://help.ubuntu.com/community/FreeNX#Using%20custom%20SSH%20keys)
 7. On the client: go to the [NX client download page](http://www.nomachine.com/download.php) and download your client from the "NX Client Products" section

@@ -97,6 +97,6 @@ Here are example LaunchAgent files, modify them to fit your application. The Lab
     </dict>
     </plist>
 
-Once you put the plist file into the ~/Library/LaunchAgents directory (which you might need to create), your SMB or NFS mount will automatically get connected when you boot the AppleTV.
+Once you put the plist file into the `~/Library/LaunchAgents` directory (which you might need to create), your SMB or NFS mount will automatically get connected when you boot the AppleTV.
 
 Enjoy.
