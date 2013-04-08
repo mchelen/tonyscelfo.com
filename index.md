@@ -3,9 +3,7 @@ title: Tony Scelfo
 layout: default
 ---
 
-I make stuff.
-
-I work on:
+I make stuff. I work on:
 * [Google+](https://plus.google.com/)
 * [Gmail](https://www.gmail.com/)
 * [Matt and Christina's Wedding Website](http://www.mattandchristinagettingmarried.com/)
