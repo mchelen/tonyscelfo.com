@@ -1,11 +1,17 @@
-<h3>About Me</h3>
-
-<p>Donec libero libero, bibendum non condimentum ac, ullamcorper at sapien.\
- Duis feugiat urna vel justo cursus facilisis. Vivamus ligula dui, convalli\
-s a varius vitae, facilisis eget magna.</p>
-
+<h3>{{ site.description }}</h3>
 <ul>
-  {% for post in site.posts limit: 5 %}
+  {% for post in site.posts %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
+<p>
+  View My
+  <a href="{{ site.url_gplus }}">Google+</a>
+  |
+  <a href="{{ site.url_github }}">GitHub</a>
+  |
+  <a href="{{ site.url_facebook }}">Facebook</a>
+  |
+  <a href="{{ site.url_linkedin }}">LinkedIn</a>
+  Profile
+</p>

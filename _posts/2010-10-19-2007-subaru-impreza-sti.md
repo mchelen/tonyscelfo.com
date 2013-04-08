@@ -16,7 +16,7 @@ After a few months of taking public transportation to work, I got a new 2007 Sub
 
 ![Autocross number 461](http://1.bp.blogspot.com/_FAFnIIU0jHc/Sk4aJqoyj9I/AAAAAAAAGI0/I1e37bO4-Xs/s400/CIMG1705.JPG)
 
-![STi in desert](http://3.bp.blogspot.com/_FAFnIIU0jHc/Spt2uD1NcAI/AAAAAAAAHSc/wOPYU-eE1AE/s1600/DSC_0033.JPG)
+![STi in desert](http://3.bp.blogspot.com/_FAFnIIU0jHc/Spt2uD1NcAI/AAAAAAAAHSc/wOPYU-eE1AE/s400/DSC_0033.JPG)
 
 ![STi in Zion](http://1.bp.blogspot.com/_FAFnIIU0jHc/SqdGPgw1AeI/AAAAAAAAHVs/5lj_Bp8cWJw/s400/DSC_0047.JPG)
 
