@@ -51,3 +51,4 @@ Once you edit the passwd.client file, run `sudo update-exim4.conf` which will in
 Run `sudo /etc/init.d/exim4 restart` and make sure that the service stops and starts properly. If the service is unable to restart, something probably went wrong when you edited the passwd.client file.
 
 If Exim4 restarted, go ahead and run `sudo tail -f /var/log/exim4/mainlog` to watch the mail logs. In a different window, send an email from your system and make sure that you see a record go by with `R=smarthost T=remote_smtp_smarthost H=gmail-smtp-msa.l.google.com ... X=TLS-1.0:RSA_ARCFOUR_MD5:16` in it. The X=TLS means that the mail is being sent with [transport layer security](http://en.wikipedia.org/wiki/Transport_Layer_Security) which is what you want.
+
