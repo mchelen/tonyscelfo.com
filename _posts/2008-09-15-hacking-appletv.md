@@ -49,6 +49,7 @@ Here are example LaunchAgent files, modify them to fit your application. The Lab
 
 `/Users/frontrow/Library/LaunchAgents/com.tonyscelfo.nfs.plist`
 
+{% highlight xml %}
     <?xml version=”1.0″ encoding=”UTF-8″?>
     <!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
     <plist version=”1.0″>
@@ -71,9 +72,11 @@ Here are example LaunchAgent files, modify them to fit your application. The Lab
             <false/>
     </dict>
     </plist>
+{% endhighlight %}
 
 `/Users/frontrow/Library/LaunchAgents/com.tonyscelfo.smb.plist`
 
+{% highlight xml %}
     <?xml version=”1.0″ encoding=”UTF-8″?>
     <!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
     <plist version=”1.0″>
@@ -96,6 +99,7 @@ Here are example LaunchAgent files, modify them to fit your application. The Lab
             <false/>
     </dict>
     </plist>
+{% endhighlight %}
 
 Once you put the plist file into the `~/Library/LaunchAgents` directory (which you might need to create), your SMB or NFS mount will automatically get connected when you boot the AppleTV.
 

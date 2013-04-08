@@ -36,29 +36,35 @@ Step 2:
 
 Create the git repo on your server:
 
-    cd /path/to
-    mkdir repo
-    cd repo
-    git init --bare
-    cd hooks
-    wget http://www.tonyscelfo.com/git/post-receive
-    chmod u+x post-receive
+{% highlight bash %}
+$ cd /path/to
+$ mkdir repo
+$ cd repo
+$ git init --bare
+$ cd hooks
+$ wget http://www.tonyscelfo.com/git/post-receive
+$ chmod u+x post-receive
+{% endhighlight
 
 Step 3:
 
 Clone the repo on your local machine:
 
-    git clone -b master <user>@<hostname>:/path/to/repo
+{% highlight bash %}
+$ git clone -b master <user>@<hostname>:/path/to/repo
+{% endhighlight %}
   
 On the initial empty checkout, you will see: "warning: You appear to have cloned an empty repository."  Once we push, you won't see that again if/when you clone to other local machines.
 
-    cd
-    mkdir data
-    echo "p0" > data/live
-    git add data/live
-    git commit -a -m "initial commit to create valid repo"
-    git tag p0
-    git push origin +master:refs/heads/master --tags
+{% highlight bash %}
+$ cd
+$ mkdir data
+$ echo "p0" > data/live
+$ git add data/live
+$ git commit -a -m "initial commit to create valid repo"
+$ git tag p0
+$ git push origin +master:refs/heads/master --tags
+{% endhighlight %}
 
 You will now have the following on your server:
 
@@ -71,10 +77,12 @@ Step 4 (repeat for as long as you work on the project):
 
 Work on your site and push to staging:
 
-    work, work, work
-    git commit
-    git push
-    repeat
+{% highlight bash %}
+$ # work, work, work
+$ git commit
+$ git push
+$ # repeat
+{% endhighlight %}
 
 Every time you push, the staging directory will be updated immediately.  When you want to promote to production, do the following:
 
