@@ -44,7 +44,7 @@ $ git init --bare
 $ cd hooks
 $ wget http://www.tonyscelfo.com/git/post-receive
 $ chmod u+x post-receive
-{% endhighlight
+{% endhighlight %}
 
 Step 3:
 
