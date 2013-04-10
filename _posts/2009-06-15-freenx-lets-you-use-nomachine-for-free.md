@@ -6,8 +6,6 @@ alias: /2009/06/freenx-lets-you-use-nomachine-for-free.html
 
 *UPDATE: This post has been superseded by [my post about NoMachine Free Edition](http://blog.tonyscelfo.com/2009/07/use-nomachine-free-edition-instead-of.html). I'm leaving this post here to avoid duplicating the information about OS X and the reasons to recompile from source.*
 
-test
-
 [NoMachine NX](http://www.nomachine.com/) is a fantastic suite of server and client tools that allow you to use a remote computer as if the keyboard, mouse and monitor in front of you are plugged directly into the remote machine machine you are connected to. The killer feature is that the session works just like the command line screen program where you can detach and reattach to a full X session.
 
 [FreeNX](http://freenx.berlios.de/) is a GPL implementation of the NX Server and NX Client Components which are normally licensed by NoMachine. I've used both FreeNX and the licensed product by NoMachine. The licensed one is a little snappier and smoother, but for personal use you can't beat free.
