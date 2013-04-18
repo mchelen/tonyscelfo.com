@@ -1,6 +1,6 @@
 ---
 title: Using Git to Deploy a Website
-layout: default
+layout: post
 alias: /2010/09/using-git-to-deploy-website.html
 ---
 

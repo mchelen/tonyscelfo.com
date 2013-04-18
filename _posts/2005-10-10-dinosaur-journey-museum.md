@@ -1,6 +1,6 @@
 ---
 title: Dinosaur Journey Museum
-layout: default
+layout: post
 alias: /2005/10/dinosaur-journey-museum.html
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: New Homepage Design
-layout: default
+layout: post
 alias: /2008/08/new-homepage-design.html
 ---
 

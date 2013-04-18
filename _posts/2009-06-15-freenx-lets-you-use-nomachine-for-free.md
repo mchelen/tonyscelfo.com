@@ -1,6 +1,6 @@
 ---
 title: FreeNX lets you use NoMachine for free... and its so nice!!!
-layout: default
+layout: post
 alias: /2009/06/freenx-lets-you-use-nomachine-for-free.html
 ---
 

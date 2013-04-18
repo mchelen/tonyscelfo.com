@@ -1,6 +1,6 @@
 ---
 title: Open space beneath
-layout: default
+layout: post
 alias: /2005/10/open-space-beneath.html
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Use Keyboard Shortcuts in Google Applications
-layout: default
+layout: post
 alias: /2010/02/use-keyboard-shortcuts-in-google.html
 ---
 

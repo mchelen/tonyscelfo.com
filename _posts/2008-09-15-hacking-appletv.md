@@ -1,6 +1,6 @@
 ---
 title: Hacking AppleTV
-layout: default
+layout: post
 alias: /2008/09/hacking-appletv.html
 ---
 

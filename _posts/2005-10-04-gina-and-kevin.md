@@ -1,6 +1,6 @@
 ---
 title: Gina and Kevin
-layout: default
+layout: post
 alias: /2005/10/gina-and-kevin.html
 ---
 

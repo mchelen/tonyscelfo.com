@@ -1,6 +1,6 @@
 ---
 title: Use NoMachine Free Edition Instead of FreeNX
-layout: default
+layout: post
 alias: /2009/07/use-nomachine-free-edition-instead-of.html
 ---
 

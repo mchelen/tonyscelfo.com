@@ -1,6 +1,6 @@
 ---
 title: Dr. ColorChip
-layout: default
+layout: post
 alias: /2009/04/dr-color-chip.html
 ---
 

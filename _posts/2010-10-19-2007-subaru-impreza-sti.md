@@ -1,6 +1,6 @@
 ---
 title: 2007 Subaru Impreza STi
-layout: default
+layout: post
 alias: /2010/10/2007-subaru-impreza-sti.html
 ---
 

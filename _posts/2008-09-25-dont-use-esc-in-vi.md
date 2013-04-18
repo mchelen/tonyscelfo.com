@@ -1,6 +1,6 @@
 ---
 title: Don't use the Esc key in Vi
-layout: default
+layout: post
 alias: /2008/09/dont-use-esc-in-vi.html
 ---
 

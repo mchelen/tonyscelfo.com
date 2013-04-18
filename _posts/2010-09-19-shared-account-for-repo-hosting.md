@@ -1,6 +1,6 @@
 ---
 title: Shared Account for Repo Hosting
-layout: default
+layout: post
 alias: /2010/09/shared-account-for-repo-hosting.html
 ---
 

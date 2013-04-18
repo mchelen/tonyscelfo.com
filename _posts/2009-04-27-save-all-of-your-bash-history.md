@@ -1,6 +1,6 @@
 ---
 title: Save all of your bash history
-layout: default
+layout: post
 alias: /2009/04/save-all-of-your-bash-history.html
 ---
 
