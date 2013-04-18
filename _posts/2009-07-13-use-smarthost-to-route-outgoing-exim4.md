@@ -1,6 +1,6 @@
 ---
 title: Use Smarthost to Route Outgoing Exim4 Mail Through Gmail
-layout: post
+layout: default
 alias: /2009/07/use-smarthost-to-route-outgoing-exim4.html
 ---
 
