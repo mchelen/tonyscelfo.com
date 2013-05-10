@@ -44,7 +44,7 @@ Unfortunately, the OS X client needs a little more love if you want to have the 
     keycode 75 = asterisk
     keycode 77 = plus
 
-Then you simply run `xmodmap ~/.Xmodmap_osx` every time you connect to your session from OS X. Its annoying, but I just made a quick menu item in FVWM (my window manager) to execute the xmodmap command.
+Then you simply run `xmodmap ~/.Xmodmap_osx` every time you connect to your session from OS X. It's annoying, but I just made a quick menu item in FVWM (my window manager) to execute the xmodmap command.
 
 There are a few essential keybindings to use in NX:
 * ctrl-alt-t: bring up a dialog to detach from the session (or terminate if you want to kill it)
