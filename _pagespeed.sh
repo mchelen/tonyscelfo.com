@@ -1,9 +1,10 @@
 #!/bin/bash
+set -e
 
-minify_css_bin=~/src/depot_tools/src/out/Debug/minify_css_bin
-minify_html_bin=~/src/depot_tools/src/out/Debug/minify_html_bin
-minify_js_bin=~/src/depot_tools/src/out/Debug/minify_js_bin
-optimize_image_bin=~/src/depot_tools/src/out/Debug/optimize_image_bin
+minify_css_bin=~/src/depot_tools/src/out/Release/minify_css_bin
+minify_html_bin=~/src/depot_tools/src/out/Release/minify_html_bin
+minify_js_bin=~/src/depot_tools/src/out/Release/minify_js_bin
+optimize_image_bin=~/src/depot_tools/src/out/Release/optimize_image_bin
 
 input_dir=_site
 output_dir=_pagespeed
