@@ -1,13 +1,13 @@
 application: tony-scelfo
-version: 1
+version: 2
 runtime: python27
 api_version: 1
 threadsafe: true
 
 handlers:
 - url: /
-  static_files: _site/index.html
-  upload: _site/index.html
+  static_files: _pagespeed/index.html
+  upload: _pagespeed/index.html
 - url: /(.+)
-  static_files: _site/\1
-  upload: _site/(.+)
+  static_files: _pagespeed/\1
+  upload: _pagespeed/(.+)
