@@ -11,10 +11,13 @@ output_dir=_pagespeed
 
 cd $(dirname ${BASH_SOURCE[0]})
 
-rm -rf _pagespeed
+rm -rf ${output_dir}/*
 
 for dir in $(find ${input_dir} -type d); do
-  mkdir ${dir/${input_dir}/${output_dir}}
+  tmp_output_dir=${dir/${input_dir}/${output_dir}}
+  if [[ ${tmp_output_dir} != ${output_dir} ]]; then
+    mkdir ${tmp_output_dir}
+  fi
 done
 
 for file in $(find ${input_dir} -type f); do
