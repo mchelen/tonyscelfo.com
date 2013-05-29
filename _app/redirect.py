@@ -1,8 +1,10 @@
 import webapp2
 
 redirects = {
-    '/smint': 'http://stats.pingdom.com/uoumvhl0hdy0/495263',
     '/berncliff': 'http://stats.pingdom.com/51e7tbr59r0z/495258',
+    '/<:\+|plus>': 'https://plus.google.com/110371866564374610674',
+    '/smint': 'http://stats.pingdom.com/uoumvhl0hdy0/495263',
+    '/wordpress/2008/03/01/hacking-appletv-take-2<:/?>': '/2008/09/15/hacking-appletv.html',
 }
 
 wsgi = webapp2.WSGIApplication(
