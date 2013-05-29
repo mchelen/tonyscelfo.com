@@ -1,5 +1,5 @@
 application: tony-scelfo
-version: 2
+version: 3
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -8,6 +8,8 @@ handlers:
 - url: /
   static_files: _pagespeed/index.html
   upload: _pagespeed/index.html
+- url: /[^\.]* # anything without a .
+  script: _app.redirect.wsgi
 - url: /(.+)
   static_files: _pagespeed/\1
   upload: _pagespeed/(.+)
