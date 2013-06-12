@@ -8,7 +8,7 @@ The greatest workflow change I've made to improve productivity is to save every 
 
 Just add this snippet into your `~/.bashrc` file and you will get a `~/.bash_eternal_history` file that will contain every command you run. No more worrying about the max size of your bash history file or getting frustrated that the command you wanted to recall was 102 commands ago in a history file with 100 commands.
 
-{% highlight bash linenos %}
+{% highlight bash %}
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
