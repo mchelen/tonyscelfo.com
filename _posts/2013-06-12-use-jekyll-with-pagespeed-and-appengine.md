@@ -11,7 +11,7 @@ I've taken things one step further.  I take the `_site/` output from [Jekyll](ht
 
 1. Install [Jekyll](http://jekyllrb.com/):
 
-{% highlight console %}
+{% highlight bash %}
 $ gem install jekyll
 {% endhighlight %}
 
@@ -19,7 +19,7 @@ $ gem install jekyll
 
 3. Build the [PageSpeed](https://developers.google.com/speed/pagespeed/) command line tools using `gclient` from [depot_tools](http://dev.chromium.org/developers/how-tos/depottools):
 
-{% highlight console %}
+{% highlight bash %}
 $ cd ~/src
 $ svn checkout http://src.chromium.org/svn/trunk/tools/depot_tools
 $ cd depot_tools/
@@ -119,7 +119,7 @@ handlers:
 
 7. Note the "anything with a ." url handler.  This is a little trick to take any request where the path doesn't contain a period and route it through a simple wsgi redirect handler.  This allows you to handle custom urls like http://tonyscelfo.com/+.  To do that, create an `_app` directory with an empty `__init__.py` file in it so [App Engine](https://developers.google.com/appengine/) recognizes the directory.
 
-{% highlight console %}
+{% highlight bash %}
 $ mkdir _app
 $ touch _app/__init__.py
 {% endhighlight %}
