@@ -50,55 +50,55 @@ Here are example LaunchAgent files, modify them to fit your application. The Lab
 `/Users/frontrow/Library/LaunchAgents/com.tonyscelfo.nfs.plist`
 
 {% highlight xml %}
-    <?xml version=”1.0″ encoding=”UTF-8″?>
-    <!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
-    <plist version=”1.0″>
-    <dict>
-            <key>Disabled</key>
-            <false/>
-            <key>Label</key>
-            <string>com.tonyscelfo.nfs</string>
-            <key>Program</key>
-            <string>/sbin/mount_nfs</string>
-            <key>ProgramArguments</key>
-            <array>
-                    <string>-t</string>
-                    <string>nfsserver:/path/to/share</string>
-                    <string>/Users/frontrow/Movies/NFSMountPath</string>
-            </array>
-            <key>RunAtLoad</key>
-            <true/>
-            <key>OnDemand</key>
-            <false/>
-    </dict>
-    </plist>
+<?xml version=”1.0″ encoding=”UTF-8″?>
+<!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
+<plist version=”1.0″>
+<dict>
+        <key>Disabled</key>
+        <false/>
+        <key>Label</key>
+        <string>com.tonyscelfo.nfs</string>
+        <key>Program</key>
+        <string>/sbin/mount_nfs</string>
+        <key>ProgramArguments</key>
+        <array>
+                <string>-t</string>
+                <string>nfsserver:/path/to/share</string>
+                <string>/Users/frontrow/Movies/NFSMountPath</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>OnDemand</key>
+        <false/>
+</dict>
+</plist>
 {% endhighlight %}
 
 `/Users/frontrow/Library/LaunchAgents/com.tonyscelfo.smb.plist`
 
 {% highlight xml %}
-    <?xml version=”1.0″ encoding=”UTF-8″?>
-    <!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
-    <plist version=”1.0″>
-    <dict>
-            <key>Disabled</key>
-            <false/>
-            <key>Label</key>
-            <string>com.tonyscelfo.smb</string>
-            <key>Program</key>
-            <string>/sbin/mount_smbfs</string>
-            <key>ProgramArguments</key>
-            <array>
-                    <string>-t</string>
-                    <string>//username:password@sambaserver/SharePath</string>
-                    <string>/Users/frontrow/Movies/SMBMountPath</string>
-            </array>
-            <key>RunAtLoad</key>
-            <true/>
-            <key>OnDemand</key>
-            <false/>
-    </dict>
-    </plist>
+<?xml version=”1.0″ encoding=”UTF-8″?>
+<!DOCTYPE plist PUBLIC “-//Apple Computer//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
+<plist version=”1.0″>
+<dict>
+        <key>Disabled</key>
+        <false/>
+        <key>Label</key>
+        <string>com.tonyscelfo.smb</string>
+        <key>Program</key>
+        <string>/sbin/mount_smbfs</string>
+        <key>ProgramArguments</key>
+        <array>
+                <string>-t</string>
+                <string>//username:password@sambaserver/SharePath</string>
+                <string>/Users/frontrow/Movies/SMBMountPath</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>OnDemand</key>
+        <false/>
+</dict>
+</plist>
 {% endhighlight %}
 
 Once you put the plist file into the `~/Library/LaunchAgents` directory (which you might need to create), your SMB or NFS mount will automatically get connected when you boot the AppleTV.
