@@ -29,7 +29,7 @@ $ cd src/
 $ BUILDTYPE=Release make
 {% endhighlight %}
 
- 4. Create a script called `_build.sh` with the following contents:
+  4. Create a script called `_build.sh` with the following contents:
 
 {% highlight bash %}
 #!/bin/bash
