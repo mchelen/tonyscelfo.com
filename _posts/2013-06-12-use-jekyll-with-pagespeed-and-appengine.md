@@ -9,15 +9,15 @@ All websites work be loading html files from a server.  The fastest possible ser
 
 I've taken things one step further.  I take the `_site/` output from [Jekyll](http://jekyllrb.com/), use [PageSpeed](https://developers.google.com/speed/pagespeed/) to minify the html, css and images and then publish the static pages to [App Engine](https://developers.google.com/appengine/).  The primary advantage of [App Engine](https://developers.google.com/appengine/) over [GitHub's free hosting of jekyll pages](https://help.github.com/articles/using-jekyll-with-pages) or inexpensive alternatives like [Dreamhost](http://dreamhost.com/) is that Google's hosting is distributed globally from many data centers with extremly high availabiliy and very low network latency... and it's free for up to 10 applications.  CPU intensive applications can run out of the free quota on [App Engine](https://developers.google.com/appengine/) but this example serves static content so it doesn't consume much quota.
 
-1. Install [Jekyll](http://jekyllrb.com/):
+  1. Install [Jekyll](http://jekyllrb.com/):
 
 {% highlight bash %}
 $ gem install jekyll
 {% endhighlight %}
 
-2. Create a [Jekyll](http://jekyllrb.com/) site using [Twitter Bootstrap](http://twitter.github.io/bootstrap/) by following these great [Using Twitter Bootstrap with Jekyll instructions](http://brizzled.clapper.org/blog/2012/03/05/using-twitter-bootstrap-with-jekyll/).  Follow the instructions until you get to a place where you can run `jekyll build` to generate content in your `_site/` directory.
+  2. Create a [Jekyll](http://jekyllrb.com/) site using [Twitter Bootstrap](http://twitter.github.io/bootstrap/) by following these great [Using Twitter Bootstrap with Jekyll instructions](http://brizzled.clapper.org/blog/2012/03/05/using-twitter-bootstrap-with-jekyll/).  Follow the instructions until you get to a place where you can run `jekyll build` to generate content in your `_site/` directory.
 
-3. Build the [PageSpeed](https://developers.google.com/speed/pagespeed/) command line tools using `gclient` from [depot_tools](http://dev.chromium.org/developers/how-tos/depottools):
+  3. Build the [PageSpeed](https://developers.google.com/speed/pagespeed/) command line tools using `gclient` from [depot_tools](http://dev.chromium.org/developers/how-tos/depottools):
 
 {% highlight bash %}
 $ cd ~/src
@@ -29,7 +29,7 @@ $ cd src/
 $ BUILDTYPE=Release make
 {% endhighlight %}
 
-4. Create a script called `_build.sh` with the following contents:
+ 4. Create a script called `_build.sh` with the following contents:
 
 {% highlight bash %}
 #!/bin/bash
@@ -45,7 +45,7 @@ rm _site/app.yaml
 ./_pagespeed.sh
 {% endhighlight %}
 
-5. Create a script called `_pagespeed.sh` with the following contents:
+  5. Create a script called `_pagespeed.sh` with the following contents:
 
 {% highlight bash %}
 #!/bin/bash
@@ -97,7 +97,7 @@ for file in $(find ${input_dir} -type f); do
 done
 {% endhighlight %}
 
-6. Create an [App Engine](https://developers.google.com/appengine/) application and use an `app.yaml` config like this.  Note that unlike the other files which can be prefixed with an underscore to be ignored by [Jekyll](http://jekyllrb.com/), [App Engine](https://developers.google.com/appengine/) requires a config file called `app.yaml`:
+  6. Create an [App Engine](https://developers.google.com/appengine/) application and use an `app.yaml` config like this.  Note that unlike the other files which can be prefixed with an underscore to be ignored by [Jekyll](http://jekyllrb.com/), [App Engine](https://developers.google.com/appengine/) requires a config file called `app.yaml`:
 
 {% highlight yaml %}
 application: <your_application_name>
@@ -117,14 +117,14 @@ handlers:
   upload: _pagespeed/(.+)
 {% endhighlight %}
 
-7. Note the "anything with a ." url handler.  This is a little trick to take any request where the path doesn't contain a period and route it through a simple wsgi redirect handler.  This allows you to handle custom urls like http://tonyscelfo.com/+.  To do that, create an `_app` directory with an empty `__init__.py` file in it so [App Engine](https://developers.google.com/appengine/) recognizes the directory.
+  7. Note the "anything with a ." url handler.  This is a little trick to take any request where the path doesn't contain a period and route it through a simple wsgi redirect handler.  This allows you to handle custom urls like http://tonyscelfo.com/+.  To do that, create an `_app` directory with an empty `__init__.py` file in it so [App Engine](https://developers.google.com/appengine/) recognizes the directory.
 
 {% highlight bash %}
 $ mkdir _app
 $ touch _app/__init__.py
 {% endhighlight %}
 
-8. Create the redirect handler `_app/redirect.py`:
+  8. Create the redirect handler `_app/redirect.py`:
 
 {% highlight python %}
 import webapp2
@@ -143,7 +143,7 @@ wsgi = webapp2.WSGIApplication(
     debug=False)
 {% endhighlight %}
 
-9. Finally, create a `_deploy.py` script which you can run to build, optimze and then publish your site to [App Engine](https://developers.google.com/appengine/).  Adjust accordingly to point to the [App Engine](https://developers.google.com/appengine/) client code wherever you installed it.
+  9. Finally, create a `_deploy.py` script which you can run to build, optimze and then publish your site to [App Engine](https://developers.google.com/appengine/).  Adjust accordingly to point to the [App Engine](https://developers.google.com/appengine/) client code wherever you installed it.
 
 {% highlight bash %}
 #!/bin/bash
