@@ -31,7 +31,7 @@ $ BUILDTYPE=Release make
 
 4. Create a script called `_build.sh` with the following contents:
 
-{% highlight bash linenos=table %}
+{% highlight bash linenos %}
 #!/bin/bash
 set -e
 
@@ -47,7 +47,7 @@ rm _site/app.yaml
 
 5. Create a script called `_pagespeed.sh` with the following contents:
 
-{% highlight bash linenos=table %}
+{% highlight bash linenos %}
 #!/bin/bash
 set -e
 
@@ -99,7 +99,7 @@ done
 
 6. Create an [App Engine](https://developers.google.com/appengine/) application and use an `app.yaml` config like this.  Note that unlike the other files which can be prefixed with an underscore to be ignored by [Jekyll](http://jekyllrb.com/), [App Engine](https://developers.google.com/appengine/) requires a config file called `app.yaml`:
 
-{% highlight yaml linenos=table %}
+{% highlight yaml linenos %}
 application: <your_application_name>
 version: <your_application_version>
 runtime: python27
@@ -126,7 +126,7 @@ $ touch _app/__init__.py
 
 8. Create the redirect handler `_app/redirect.py`:
 
-{% highlight python linenos=table %}
+{% highlight python linenos %}
 import webapp2
 
 redirects = {
@@ -145,7 +145,7 @@ wsgi = webapp2.WSGIApplication(
 
 9. Finally, create a `_deploy.py` script which you can run to build, optimze and then publish your site to [App Engine](https://developers.google.com/appengine/).  Adjust accordingly to point to the [App Engine](https://developers.google.com/appengine/) client code wherever you installed it.
 
-{% highlight bash linenos=table %}
+{% highlight bash linenos %}
 #!/bin/bash
 set -e
 
