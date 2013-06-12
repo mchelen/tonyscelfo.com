@@ -117,7 +117,7 @@ handlers:
   upload: _pagespeed/(.+)
 {% endhighlight %}
 
-  7. Note the "anything with a ." url handler.  This is a little trick to take any request where the path doesn't contain a period and route it through a simple wsgi redirect handler.  This allows you to handle custom urls like http://tonyscelfo.com/+.  To do that, create an `_app` directory with an empty `__init__.py` file in it so [App Engine](https://developers.google.com/appengine/) recognizes the directory.
+  7. Note the "anything with a ." url handler.  This is a little trick to take any request where the path doesn't contain a period and route it through a simple wsgi redirect handler.  This allows you to handle custom urls like http://tonyscelfo.com/+.  To do that, create an `_app` directory with an empty `__init__.py` file in it so [App Engine](https://developers.google.com/appengine/) recognizes the directory:
 
 {% highlight bash %}
 $ mkdir _app
@@ -143,7 +143,7 @@ wsgi = webapp2.WSGIApplication(
     debug=False)
 {% endhighlight %}
 
-  9. Finally, create a `_deploy.py` script which you can run to build, optimze and then publish your site to [App Engine](https://developers.google.com/appengine/).  Adjust accordingly to point to the [App Engine](https://developers.google.com/appengine/) client code wherever you installed it.
+  9. Finally, create a `_deploy.py` script which you can run to build, optimze and then publish your site to [App Engine](https://developers.google.com/appengine/).  Adjust accordingly to point to the [App Engine](https://developers.google.com/appengine/) client code wherever you installed it:
 
 {% highlight bash %}
 #!/bin/bash
