@@ -3,7 +3,7 @@ title: Use Jekyll with Twitter Bootstrap, PageSpeed and App Engine
 layout: post
 ---
 
-This site is currently built using [Jekyll](http://jekyllrb.com/), [Twitter Bootstrap](http://twitter.github.io/bootstrap/), [PageSpeed](https://developers.google.com/speed/pagespeed/) and is hosted on [App Engine](https://developers.google.com/appengine/).  This is currently my favorite way to easily build and host fast and highly available websites.
+This site is currently built using [Jekyll](http://jekyllrb.com/), [Twitter Bootstrap](http://twitter.github.io/bootstrap/), [PageSpeed](https://developers.google.com/speed/pagespeed/) and is hosted on [App Engine](https://developers.google.com/appengine/).  This is currently my favorite way to easily build and host fast and highly available websites.  You can look at the source for this website at <https://github.com/scelfo/tonyscelfo.com>.
 
 All websites work be loading html files from a server.  The fastest possible servers are ones that simply serve static html files instead of running code to dynamically generate the html at request time.  [Jekyll](http://jekyllrb.com/) is a clever tool that precomputes static html files for a website.  It uses [Markdown](http://daringfireball.net/projects/markdown/) as a templating language to simplify the process of writing valid html.  When the `jekyll build` command is executed, it compiles a full set of html pages under a single output directory called `_site/`.  You can serve directly out of the `_site/` directory, rsync it to a remote server or even use [GitHub's free hosting of jekyll pages](https://help.github.com/articles/using-jekyll-with-pages).
 
@@ -117,7 +117,7 @@ handlers:
   upload: _pagespeed/(.+)
 {% endhighlight %}
 
-  7. Note the "anything with a ." url handler.  This is a little trick to take any request where the path doesn't contain a period and route it through a simple wsgi redirect handler.  This allows you to handle custom urls like http://tonyscelfo.com/+.  To do that, create an `_app` directory with an empty `__init__.py` file in it so [App Engine](https://developers.google.com/appengine/) recognizes the directory:
+  7. Note the "anything with a ." url handler.  This is a little trick to take any request where the path doesn't contain a period and route it through a simple wsgi redirect handler.  This allows you to handle custom urls like <http://tonyscelfo.com/+>.  To do that, create an `_app` directory with an empty `__init__.py` file in it so [App Engine](https://developers.google.com/appengine/) recognizes the directory:
 
 {% highlight bash %}
 $ mkdir _app
