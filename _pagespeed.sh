@@ -11,6 +11,15 @@ output_dir=_pagespeed
 
 cd $(dirname ${BASH_SOURCE[0]})
 
+if [ ! -d ${output_dir} ]; then
+  echo
+  echo "Output directory ${output_dir} doesn't exist."
+  echo
+  echo "Create one or use a symlink to point elsewhere..."
+  echo "for example to a directory served by a web server."
+  exit 1
+fi
+
 rm -rf ${output_dir}/*
 
 for dir in $(find ${input_dir} -type d); do
