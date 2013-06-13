@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+cd $(dirname ${BASH_SOURCE[0]})
 
 minify_css_bin=~/src/depot_tools/src/out/Release/minify_css_bin
 minify_html_bin=~/src/depot_tools/src/out/Release/minify_html_bin
@@ -8,8 +9,6 @@ optimize_image_bin=~/src/depot_tools/src/out/Release/optimize_image_bin
 
 input_dir=_site
 output_dir=_pagespeed
-
-cd $(dirname ${BASH_SOURCE[0]})
 
 if [ ! -d ${output_dir} ]; then
   echo
