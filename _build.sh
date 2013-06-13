@@ -2,7 +2,7 @@
 set -e
 cd $(dirname ${BASH_SOURCE[0]})
 
-if [ ! -d _submodules/jekyll_alias_generator/.git ]; then
+if [ ! -f _submodules/jekyll_alias_generator/.git ]; then
   echo
   echo "Submodules aren't initialized."
   echo
