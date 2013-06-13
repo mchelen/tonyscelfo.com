@@ -143,7 +143,7 @@ wsgi = webapp2.WSGIApplication(
     debug=False)
 {% endhighlight %}
 
-  9. Finally, create a `_deploy.py` script which you can run to build, optimze and then publish your site to [App Engine](https://developers.google.com/appengine/).  Adjust accordingly to point to the [App Engine](https://developers.google.com/appengine/) client code wherever you installed it:
+  9. Finally, create a `_deploy.py` script which you can run to build, optimize and then publish your site to [App Engine](https://developers.google.com/appengine/).  Adjust accordingly to point to the [App Engine](https://developers.google.com/appengine/) client code wherever you installed it:
 
 {% highlight bash %}
 #!/bin/bash
