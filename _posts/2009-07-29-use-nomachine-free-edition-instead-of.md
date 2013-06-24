@@ -47,13 +47,13 @@ $ sudo apt-get install libjpeg62-dev libpng12-dev
 (Optional) Modify Keystroke.c to remove some server side keyboard bindings which conflict with my window manager keyboard shortcuts.
 
 {% highlight bash %}
-$ wget http://tonyscelfo.com/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
+$ wget http://www.tonyscelfo.com/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
 {% endhighlight %}
 
 (Optional) Modify Cursor.c to enable client side cursor warp.  This was removed in the 3.5 line because it caused problems when resizing nxclient sessions.  [NoMachine article about removing cursor warp.](http://www.nomachine.com/ar/view.php?ar_id=AR02J00622)  However, use fvwm2 and have keyboard shortcuts to move my mouse which don't work without client side cursor warp.
 
 {% highlight bash %}
-$ wget http://tonyscelfo.com/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch
+$ wget http://www.tonyscelfo.com/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch
 {% endhighlight %}
 
 Go into the nx-X11 directory.
@@ -104,7 +104,7 @@ $ for foo in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`
 If you want to modify Keystroke.c the same way I do (remove some bindings that interfere with my window manager keyboard shortcuts), you can add this step after extracting all the source files:
 
 {% highlight bash %}
-$ wget http://tonyscelfo.com/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
+$ wget http://www.tonyscelfo.com/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
 {% endhighlight %}
 
 ---
@@ -123,8 +123,8 @@ Do this all in one shot:
 $ sudo apt-get install libjpeg62-dev libpng12-dev \
     && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/sources.php | egrep "${file}-[0-9]" | grep HREF | sed 's/.*HREF="\(.*\)".*/\1/'`; wget ${url}; done \
     && for file in *.gz; do tar xzf ${file}; done \
-    && wget http://tonyscelfo.com/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
-    && wget http://tonyscelfo.com/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
+    && wget http://www.tonyscelfo.com/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
+    && wget http://www.tonyscelfo.com/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
     && cd nx-X11/ \
     && make -j12 World \
     && strip programs/Xserver/nxagent \
