@@ -36,7 +36,7 @@ for file in $(find ${input_dir} -type f); do
     ${minify_html_bin} ${file} ${output_file}
   elif [[ ${file} =~ .js$ ]]; then
     ${minify_js_bin} ${file} ${output_file}
-  elif [[ ${file} =~ .png$ ]]; then
+  elif [[ ${file} =~ .jpg$ || ${file} =~ .png$ ]]; then
     ${optimize_image_bin} -input_file ${file} -output_file ${output_file}
   else
     cp -v ${file} ${output_file}
