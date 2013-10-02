@@ -19,7 +19,7 @@ If you are happy with the default configuration of NX server, you can stop here.
 If recompiling is for you, start by download the source from the [NX source download page](http://www.nomachine.com/NX-OSS-sources).  You can get them all in one shot by running:
 
 {% highlight bash %}
-$ for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | head -n 1 | grep href | sed 's/.*href="\(.*\)".*/\1/'`; wget ${url}; done
+$ for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'`; wget ${url}; done
 {% endhighlight %}
 
 Or you can download them one at time.  You'll need these files:
@@ -96,7 +96,7 @@ $ sudo /etc/init.d/nxserver restart
 This one liner works (inefficiently) to download all the source files:
 
 {% highlight bash %}
-$ for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | head -n 1 | grep href | sed 's/.*href="\(.*\)".*/\1/'`; wget ${url}; done
+$ for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'`; wget ${url}; done
 {% endhighlight %}
 
 ---
@@ -121,7 +121,7 @@ Do this all in one shot:
 
 {% highlight bash %}
 $ sudo apt-get install libjpeg62-dev libpng12-dev \
-    && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | head -n 1 | grep href | sed 's/.*href="\(.*\)".*/\1/'`; wget ${url}; done \
+    && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'`; wget ${url}; done \
     && for file in *.gz; do tar xzf ${file}; done \
     && wget http://www.tonyscelfo.com/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
     && wget http://www.tonyscelfo.com/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
