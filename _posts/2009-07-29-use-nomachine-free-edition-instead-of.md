@@ -8,7 +8,7 @@ alias: /2009/07/use-nomachine-free-edition-instead-of.html
 
 If you are new to NX, I highly recommend reading [my FreeNX post](http://blog.tonyscelfo.com/2009/06/freenx-lets-you-use-nomachine-for-free.html) because it talks more about NX and it describes how to use xmodmap to fix key bindings when using an OS X client to connect to a linux server.
 
-To get started the easy way, visit the [NoMachine Free Edition download page](http://www.nomachine.com/download.php) and download "NX Free Edition for Linux". If you are on Ubuntu, grab the deb file for the server and install it as you normally would.
+To get started the easy way, visit the [NoMachine Free Edition download page](http://www.nomachine.com/download-3) and download "NX Free Edition for Linux". If you are on Ubuntu, grab the deb file for the server and install it as you normally would.
 
 {% highlight bash %}
 $ sudo dpkg -i nxserver_X.Y.Z-N_i386.deb
