@@ -26,7 +26,6 @@ tell application "Google Chrome"
     end if
   end repeat
   if (musicTab is not null) then
-    # display alert (title of musicTab as string)
     try
       tell musicTab to execute javascript "SJBpost('playPause');" #nextSong, prevSong playPause
     end try
