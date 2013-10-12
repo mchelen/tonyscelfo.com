@@ -4,6 +4,7 @@ layout: default
 ---
 
 I make stuff. I work on:
+* [Google Glass](https://www.google.com/glass)
 * [Google+](https://plus.google.com)
 * [Gmail](https://www.gmail.com)
 * [Eryka and My Wedding Website](http://www.eloandtony.com)
