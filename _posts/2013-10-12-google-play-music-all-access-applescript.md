@@ -27,7 +27,9 @@ tell application "Google Chrome"
   end repeat
   if (musicTab is not null) then
     try
-      tell musicTab to execute javascript "SJBpost('playPause');" #nextSong, prevSong playPause
+      # To configure different commands, replace "playPause" with other strings
+      # like "nextSong" or "prevSong".
+      tell musicTab to execute javascript "SJBpost('playPause');"
     end try
   end if
 end tell
