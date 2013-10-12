@@ -26,6 +26,7 @@ My hobbies:
 * [Pine Ridge Vineyards](http://www.pineridgewinery.com)
 * [Chimney Rock Winery](http://www.chimneyrock.com)
 * [Signorello Estate](http://signorellovineyards.com)
+* [Girard Winery](http://www.girardwinery.com)
 * [Cosentino Winery](http://www.cosentinowinery.com)
 * [Elyse Winery](http://www.elysewinery.com)
 * [Miner Family Winery](http://minerwines.com)
