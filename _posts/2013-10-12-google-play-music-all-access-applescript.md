@@ -7,7 +7,7 @@ Thanks to the [Create global hotkeys to control Google Music playback ](http://h
 
 The following are adaptations of the script posted on [Create global hotkeys to control Google Music playback ](http://hints.macworld.com/article.php?story=20110622061755509) but I've updated them to be a little more fault tolerant and to work with the current window titles of [Google Play Music All Access](https://play.google.com/about/music/).
 
-{% highlight bash %}
+{% highlight applescript %}
 tell application "Google Chrome"
   set allWins to every window
   set allTabs to {}
@@ -33,4 +33,16 @@ tell application "Google Chrome"
     end try
   end if
 end tell
+{% endhighlight %}
+
+{% highlight applescript %}
+tell application id "com.mog.desktop" to playpause
+{% endhighlight %}
+
+{% highlight applescript %}
+tell application id "com.mog.desktop" to next
+{% endhighlight %}
+
+{% highlight applescript %}
+tell application id "com.mog.desktop" to previous
 {% endhighlight %}
