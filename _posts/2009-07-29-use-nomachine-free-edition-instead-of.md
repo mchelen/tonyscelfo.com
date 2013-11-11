@@ -16,13 +16,13 @@ $ sudo dpkg -i nxserver_X.Y.Z-N_i386.deb
 
 If you are happy with the default configuration of NX server, you can stop here. If you are an OS X user or if you want to change some of the NX key bindings you need to recompile nxagent from source. Take a look at [my FreeNX post](http://blog.tonyscelfo.com/2009/06/freenx-lets-you-use-nomachine-for-free.html) to read more about why you might want to recompile.
 
-If recompiling is for you, start by download the source from the [NX source download page](http://www.nomachine.com/NX-OSS-sources).  You can get them all in one shot by running:
+If recompiling is for you, start by download the source from the [NX source download page](https://www.nomachine.com/NX-OSS-sources).  You can get them all in one shot by running:
 
 {% highlight bash %}
-$ contents=$(curl http://www.nomachine.com/NX-OSS-sources) \
-  && curl -O $(for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
+$ contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) \
+  && curl -L -O $(for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
     do echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'; \
-  done) \
+  done)
 {% endhighlight %}
 
 Or you can download them one at time.  You'll need these files:
@@ -50,13 +50,13 @@ $ sudo apt-get install libjpeg62-dev libpng12-dev
 (Optional) Modify Keystroke.c to remove some server side keyboard bindings which conflict with my window manager keyboard shortcuts.
 
 {% highlight bash %}
-$ curl -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
+$ curl -L -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
 {% endhighlight %}
 
 (Optional) Modify Cursor.c to enable client side cursor warp.  This was removed in the 3.5 line because it caused problems when resizing nxclient sessions.  [NoMachine article about removing cursor warp.](http://www.nomachine.com/ar/view.php?ar_id=AR02J00622)  However, use fvwm2 and have keyboard shortcuts to move my mouse which don't work without client side cursor warp.
 
 {% highlight bash %}
-$ curl -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch
+$ curl -L -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch
 {% endhighlight %}
 
 Go into the nx-X11 directory.
@@ -96,18 +96,10 @@ $ sudo /etc/init.d/nxserver restart
 
 ---
 
-This one liner works (inefficiently) to download all the source files:
-
-{% highlight bash %}
-$ for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`curl http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'`; curl -O ${url}; done
-{% endhighlight %}
-
----
-
 If you want to modify Keystroke.c the same way I do (remove some bindings that interfere with my window manager keyboard shortcuts), you can add this step after extracting all the source files:
 
 {% highlight bash %}
-$ curl -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
+$ curl -L -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch
 {% endhighlight %}
 
 ---
@@ -115,7 +107,7 @@ $ curl -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c
 In the 3.5 line, the nx team removed client side cursor warp. I need that to use FVWM2 with my keyboard bindings to move the mouse. This command will download source before they removed client side cursor warp:
 
 {% highlight bash %}
-$ for file in nxagent-3.5.0-2.tar.gz nxcomp-3.5.0-1.tar.gz nxcompshad-3.5.0-2.tar.gz nx-X11-3.5.0-1.tar.gz nxauth-3.5.0-1.tar.gz nxcompext-3.5.0-1.tar.gz nxproxy-3.5.0-1.tar.gz; do curl -O http://64.34.161.181/download/3.5.0/sources/${file}; done
+$ for file in nxagent-3.5.0-2.tar.gz nxcomp-3.5.0-1.tar.gz nxcompshad-3.5.0-2.tar.gz nx-X11-3.5.0-1.tar.gz nxauth-3.5.0-1.tar.gz nxcompext-3.5.0-1.tar.gz nxproxy-3.5.0-1.tar.gz; do curl -L -O http://64.34.161.181/download/3.5.0/sources/${file}; done
 {% endhighlight %}
 
 ---
@@ -124,13 +116,13 @@ Do this all in one shot:
 
 {% highlight bash %}
 $ sudo apt-get install libjpeg62-dev libpng12-dev \
-    && contents=$(curl http://www.nomachine.com/NX-OSS-sources) \
-    && curl -O $(for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
+    && contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) \
+    && curl -L -O $(for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
       do echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'; \
     done) \
     && for file in *.gz; do tar xzf ${file}; done \
-    && curl -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
-    && curl -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
+    && curl -L -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
+    && curl -L -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
     && cd nx-X11/ \
     && make -j12 World \
     && strip programs/Xserver/nxagent \
