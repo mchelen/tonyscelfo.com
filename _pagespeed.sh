@@ -28,6 +28,7 @@ for dir in $(find ${input_dir} -type d); do
   fi
 done
 
+IFS=$'\n'
 for file in $(find ${input_dir} -type f); do
   output_file=${file/${input_dir}/${output_dir}}
   if [[ ${file} =~ .css$ ]]; then
