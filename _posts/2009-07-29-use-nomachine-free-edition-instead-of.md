@@ -20,9 +20,9 @@ If recompiling is for you, start by download the source from the [NX source down
 
 {% highlight bash %}
 $ contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) \
-  && curl -L -O $(for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
-    do echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'; \
-  done)
+  && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
+    do curl -L -O $(echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'); \
+  done
 {% endhighlight %}
 
 Or you can download them one at time.  You'll need these files:
@@ -117,9 +117,9 @@ Do this all in one shot:
 {% highlight bash %}
 $ sudo apt-get install libjpeg62-dev libpng12-dev \
     && contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) \
-    && curl -L -O $(for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
-      do echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'; \
-    done) \
+    && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
+      do curl -L -O $(echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'); \
+    done; \
     && for file in *.gz; do tar xzf ${file}; done \
     && curl -L -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
     && curl -L -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
