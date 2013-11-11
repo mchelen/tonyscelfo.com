@@ -39,6 +39,6 @@ for file in $(find ${input_dir} -type f); do
   elif [[ ${file} =~ .jpg$ || ${file} =~ .png$ ]]; then
     ${optimize_image_bin} -input_file ${file} -output_file ${output_file}
   else
-    cp -v ${file} ${output_file}
+    cp -v "${file}" "${output_file}"
   fi
 done
