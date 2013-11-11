@@ -129,8 +129,8 @@ $ sudo apt-get install libjpeg62-dev libpng12-dev \
       do echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'; \
     done) \
     && for file in *.gz; do tar xzf ${file}; done \
-    && wget http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
-    && wget http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
+    && curl -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
+    && curl -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
     && cd nx-X11/ \
     && make -j12 World \
     && strip programs/Xserver/nxagent \
