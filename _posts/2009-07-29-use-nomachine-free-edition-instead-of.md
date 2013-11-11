@@ -19,10 +19,7 @@ If you are happy with the default configuration of NX server, you can stop here.
 If recompiling is for you, start by download the source from the [NX source download page](https://www.nomachine.com/NX-OSS-sources).  You can get them all in one shot by running:
 
 {% highlight bash %}
-$ contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) && \
-  for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do \
-    curl -L -O $(echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'); \
-  done
+$ contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do curl -L -O $(echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'); done
 {% endhighlight %}
 
 Or you can download them one at time.  You'll need these files:
@@ -115,20 +112,5 @@ $ for file in nxagent-3.5.0-2.tar.gz nxcomp-3.5.0-1.tar.gz nxcompshad-3.5.0-2.ta
 Do this all in one shot:
 
 {% highlight bash %}
-$ sudo apt-get install libjpeg62-dev libpng12-dev && \
-    contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) && \
-    for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do \
-      curl -L -O $(echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'); \
-    done; && \
-    for file in *.gz; do tar xzf ${file}; done && \
-    curl -L -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch && \
-    curl -L -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch && \
-    cd nx-X11/ && \
-    make -j12 World && \
-    strip programs/Xserver/nxagent && \
-    sudo mv /usr/NX/bin/nxagent /usr/NX/bin/nxagent.orig && \
-    sudo cp -a programs/Xserver/nxagent /usr/NX/bin/nxagent && \
-    sudo chown root:root /usr/NX/bin/nxagent && \
-    sudo chmod 755 /usr/NX/bin/nxagent && \
-    sudo /etc/init.d/nxserver restart
+$ sudo apt-get install libjpeg62-dev libpng12-dev && contents=$(curl -L https://www.nomachine.com/NX-OSS-sources) && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do curl -L -O $(echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'); done; for file in *.gz; do tar xzf ${file}; done && curl -L -O http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch && curl -L -O http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch && cd nx-X11/ && make -j12 World && strip programs/Xserver/nxagent && sudo mv /usr/NX/bin/nxagent /usr/NX/bin/nxagent.orig && sudo cp -a programs/Xserver/nxagent /usr/NX/bin/nxagent && sudo chown root:root /usr/NX/bin/nxagent && sudo chmod 755 /usr/NX/bin/nxagent && sudo /etc/init.d/nxserver restart
 {% endhighlight %}
