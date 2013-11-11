@@ -121,7 +121,10 @@ Do this all in one shot:
 
 {% highlight bash %}
 $ sudo apt-get install libjpeg62-dev libpng12-dev \
-    && for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; do url=`wget --quiet -O - http://www.nomachine.com/NX-OSS-sources | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'`; wget ${url}; done \
+    && contents=$(wget --quiet -O - http://www.nomachine.com/NX-OSS-sources) \
+    && wget $(for file in nxproxy nxcomp nxcompext nxcompshad nx-X11 nxauth nxagent; \
+      do echo "${contents}" | egrep "${file}-[0-9]" | grep href | head -n 1 | sed 's/.*href="\(.*\)".*/\1/'; \
+    done) \
     && for file in *.gz; do tar xzf ${file}; done \
     && wget http://tonyscelfo.com/dl/nx/Keystore.c.patch && patch -p0 < Keystore.c.patch \
     && wget http://tonyscelfo.com/dl/nx/Cursor.c.patch && patch -p0 < Cursor.c.patch \
