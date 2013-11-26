@@ -9,40 +9,16 @@ The following are adaptations of the script posted on [Create global hotkeys to 
 
 {% highlight applescript %}
 tell application "Google Chrome"
-  set allWins to every window
-  set allTabs to {}
-  repeat with currWin in allWins
-    set allTabs to allTabs & every tab of currWin
+  repeat with w in (every window)
+    repeat with t in (every tab whose URL contains "play.google.com/music") of w
+      # Options for action are:
+      # 1 = previous
+      # 2 = play/pause
+      # 3 = next
+      set action = 2
+      tell t to execute javascript "document.getElementsByClassName('flat-button')[" & action & "].click();"
+      return
+    end repeat
   end repeat
-  set musicTab to null
-  repeat with currTab in allTabs
-    set currTitle to title of currTab as string
-    set currLength to length of currTitle
-    if currLength > 13 then
-      set suffix to characters -13 thru -1 of currTitle as string
-      if suffix = "- Google Play" then
-        set musicTab to currTab
-      end if
-    end if
-  end repeat
-  if (musicTab is not null) then
-    try
-      # To configure different commands, replace "playPause" with other strings
-      # like "nextSong" or "prevSong".
-      tell musicTab to execute javascript "SJBpost('playPause');"
-    end try
-  end if
 end tell
-{% endhighlight %}
-
-{% highlight applescript %}
-tell application id "com.mog.desktop" to playpause
-{% endhighlight %}
-
-{% highlight applescript %}
-tell application id "com.mog.desktop" to next
-{% endhighlight %}
-
-{% highlight applescript %}
-tell application id "com.mog.desktop" to previous
 {% endhighlight %}
