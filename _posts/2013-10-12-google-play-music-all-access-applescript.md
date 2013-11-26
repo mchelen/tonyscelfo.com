@@ -15,7 +15,7 @@ tell application "Google Chrome"
       # 1 = previous
       # 2 = play/pause
       # 3 = next
-      set action = 2
+      set action to 2
       tell t to execute javascript "document.getElementsByClassName('flat-button')[" & action & "].click();"
       return
     end repeat
