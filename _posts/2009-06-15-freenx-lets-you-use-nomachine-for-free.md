@@ -14,8 +14,8 @@ The best part is that getting it all working is super easy. Here is what you nee
 
 1. Add the following apt sources to your /etc/apt/sources.list file (replace VERSION with either dapper, hardy, intrepid or jaunty:
 
-    deb http://ppa.launchpad.net/freenx-team/ppa/ubuntu VERSION main
-    deb-src http://ppa.launchpad.net/freenx-team/ppa/ubuntu VERSION main
+`deb http://ppa.launchpad.net/freenx-team/ppa/ubuntu VERSION main`
+`deb-src http://ppa.launchpad.net/freenx-team/ppa/ubuntu VERSION main`
 
 2. Get the public key of the FreeNX repo by running `sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2a8e3034d018a4ce`
 3. Update your package cache: `sudo apt-get update`
