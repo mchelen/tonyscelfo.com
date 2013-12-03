@@ -3,6 +3,8 @@ title: The NoMachine sources aren't available anymore, back to FreeNX
 layout: post
 ---
 
+Start with the [Ubuntu FreeNX instructions](https://help.ubuntu.com/community/FreeNX).
+
 {% highlight bash %}
 
 $ sudo apt-get install freenx-server
