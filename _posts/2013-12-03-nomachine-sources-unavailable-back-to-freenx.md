@@ -4,6 +4,7 @@ layout: post
 ---
 
 {% highlight bash %}
+
 $ sudo apt-get install freenx-server
 $ mkdir ~/src/nxagent
 $ cd ~/src/nxagent
@@ -16,4 +17,5 @@ $ dpkg-source --commit . cursor_warp_and_keyboard_binding_change
 $ dpkg-buildpackage
 $ cd ..
 $ sudo dpkg -i nxagent_*.deb
+
 {% endhighlight %}
