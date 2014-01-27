@@ -13,8 +13,8 @@ tell application "Google Chrome"
       # t-prev = previous
       # t-play = play/pause
       # t-next = next
-      set id to "t-prev"
-      tell t to execute javascript "document.getElementsById('" & id & "').click();"
+      set elemId to "t-prev"
+      tell t to execute javascript "document.getElementById('" & elemId & "').click();"
       return
     end repeat
   end repeat
