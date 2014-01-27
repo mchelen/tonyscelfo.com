@@ -20,3 +20,5 @@ tell application "Google Chrome"
   end repeat
 end tell
 {% endhighlight %}
+
+If you want to get this as an [Alfred App](http://www.alfredapp.com/) Workflow, [download it here](/dl/alfred/Pause%20Beats%20Music.alfredworkflow).
