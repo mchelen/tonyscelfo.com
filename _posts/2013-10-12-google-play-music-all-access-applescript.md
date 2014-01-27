@@ -23,4 +23,4 @@ tell application "Google Chrome"
 end tell
 {% endhighlight %}
 
-If you want to get this as an [Alfred App](http://www.alfredapp.com/) Workflow, [download it here](/dl/alfred/Pause%20Google%20Play%20Music.alfredworkflow).
+If you want to get this as an [Alfred App](http://www.alfredapp.com/) Workflow, [download it here](/dl/alfred/pause_google_play_music.alfredworkflow).
